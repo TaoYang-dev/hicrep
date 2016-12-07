@@ -27,7 +27,7 @@ Evaluating the reproducibility of Hi-C data. Tao Yang, Feng Yue, Qunhua Li. 2016
 
 ## Installation
 
-Download the source package `hicrep_1.0.tar.gz` from Github.
+Download the source package [hicrep_1.0.tar.gz](https://github.com/MonkeyLB/hicrep/raw/master/hicrep_1.0.tar.gz) from Github.
 Or install it from Bioconductor.
 
 ## Rationale of method

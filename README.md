@@ -1,5 +1,7 @@
-# hicrep
+## hicrep
 R package to evaluate the reproducibility of Hi-C data
+
+Tao Yang  <xadmyangt@gmail.com>
 
 ##Introduction
 
@@ -7,8 +9,8 @@ Hi-C data analysis and interpretation are still in their early stages. In partic
 
 we develop a novel framework, `hicrep`, for assessing the reproducibility of Hi-C data. It first minimizes the effect of noise and biases by smoothing Hi-C matrix, and then addresses the distance-dependence effect by stratifying Hi-C data according to their genomic distance. We further adopt a stratum-adjusted correlation coefficient (SCC) as the measurement of Hi-C data reproducibility. The value of SCC ranges from -1 to 1, and it can be used to compare the degrees of differences in reproducibility. Our framework can also infer confidence intervals for SCC, and further estimate the statistical significance of the difference in reproducibility measurement for different data sets. 
 
+Please read our the vignette for a guide through of `hicrep` analysis.
 
-In this Vignette, we explain the method rationale, and provide guidance to use the functions of `hicrep` to assess the reproducibility for Hi-C intrachromosome replicates. 
 
 ## Citation
 

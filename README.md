@@ -9,7 +9,8 @@ Hi-C data analysis and interpretation are still in their early stages. In partic
 
 we develop a novel framework, `hicrep`, for assessing the reproducibility of Hi-C data. It first minimizes the effect of noise and biases by smoothing Hi-C matrix, and then addresses the distance-dependence effect by stratifying Hi-C data according to their genomic distance. We further adopt a stratum-adjusted correlation coefficient (SCC) as the measurement of Hi-C data reproducibility. The value of SCC ranges from -1 to 1, and it can be used to compare the degrees of differences in reproducibility. Our framework can also infer confidence intervals for SCC, and further estimate the statistical significance of the difference in reproducibility measurement for different data sets. 
 
-Please read our the vignette for a guide through of `hicrep` analysis.
+Please read our the vignette for a guide through of `hicrep` analysis: 
+https://github.com/MonkeyLB/hicrep/blob/master/vignettes/hicrep-vigenette.Rmd
 
 
 ## Citation
@@ -29,5 +30,7 @@ Or install it from Bioconductor.
 This is a 2-step method (Figure1). In Hi-C data it is often difficult to achieve sufficient coverage. When samples are not sufficiently sequenced, the local variation introduced by under-sampling can make it difficult to capture large domain structures. To reduce local variation, we first smooth the contact map before assessing reproducibility. Although a smoothing filter will reduce the individual spatial resolution, it can improve the contiguity of the regions with elevated interaction, consequently enhancing the domain structures. We use a 2D moving window average filter to smooth the Hi-C contact map. This choice is made for the simplicity and fast computation of mean filter, and the rectangular shape of Hi-C compartments.
  
 In the second step, we stratify the Hi-C reads by the distance of contacting loci, calculate the Pearson correlations within each stratum, and then summarize the stratum-specific correlation coefficients into an aggregated statistic. We name it as Stratum-adjusted Correlation Coefficient (SCC). For the methodology details, please refer to our manuscript.
-
+                          
 ![Figure1. `hicrep` pipeline schematic representation](https://raw.githubusercontent.com/MonkeyLB/hicrep/master/hicrep-pipeline.JPG)
+
+                        Figure1. `hicrep` pipeline schematic representation

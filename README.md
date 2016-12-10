@@ -30,7 +30,7 @@ Or install it from Bioconductor.
 This is a 2-step method (Figure1). In Hi-C data it is often difficult to achieve sufficient coverage. When samples are not sufficiently sequenced, the local variation introduced by under-sampling can make it difficult to capture large domain structures. To reduce local variation, we first smooth the contact map before assessing reproducibility. Although a smoothing filter will reduce the individual spatial resolution, it can improve the contiguity of the regions with elevated interaction, consequently enhancing the domain structures. We use a 2D moving window average filter to smooth the Hi-C contact map. This choice is made for the simplicity and fast computation of mean filter, and the rectangular shape of Hi-C compartments.
  
 In the second step, we stratify the Hi-C reads by the distance of contacting loci, calculate the Pearson correlations within each stratum, and then summarize the stratum-specific correlation coefficients into an aggregated statistic. We name it as Stratum-adjusted Correlation Coefficient (SCC). For the methodology details, please refer to our manuscript.
+
+Figure1. `hicrep` pipeline schematic representation
                           
 ![Figure1. `hicrep` pipeline schematic representation](https://raw.githubusercontent.com/MonkeyLB/hicrep/master/hicrep-pipeline.JPG)
-
-                        Figure1. `hicrep` pipeline schematic representation

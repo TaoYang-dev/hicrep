@@ -50,7 +50,7 @@ get.scc <- function (dat, resol, max){
     }
   }
   corr = corr[!is.na(corr)]
-  de = wei[!is.na(wei)]
+  wei = wei[!is.na(wei)]
   scc = corr%*%wei/sum(wei)
   std = sqrt(sum(wei^2*var(corr))/(sum(wei))^2)
 

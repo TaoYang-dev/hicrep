@@ -17,7 +17,9 @@ https://github.com/MonkeyLB/hicrep/blob/master/vignettes/hicrep-vigenette.Rmd
 
 Cite the following paper:
 
-Evaluating the reproducibility of Hi-C data. Tao Yang, Feng Yue, Qunhua Li. 2016.
+HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted correlation coefficient
+Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li
+bioRxiv 101386; doi: https://doi.org/10.1101/101386 
 
 
 ## Installation

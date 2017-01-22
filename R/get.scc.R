@@ -13,15 +13,17 @@
 #' }
 #' @details The function stratifies the Hi-C reads count according to their interacting distance, calculates the Pearson
 #' correlation coefficient for each stratum, then aggregrates them using a weighted average.
-#' @references Evaluating the reproducibility of Hi-C data. Tao Yang, Feng Yue, Qunhua Li. 2016.
+#' @references HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted correlation coefficient. 
+#' Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
+#' bioRxiv 101386; doi: https://doi.org/10.1101/101386.
 #' @importFrom stats cor var
 #' @export
 #' @examples
 #' data(HiCR1)
 #' data(HiCR2)
-#' processed <- prep(HiCR1, HiCR2, 40000, 0, 5000000)
+#' processed <- prep(HiCR1, HiCR2, 1000000, 0, 5000000)
 #'
-#' scc.out = get.scc(processed, 40000, 5000000)
+#' scc.out = get.scc(processed, 1000000, 5000000)
 #' scc.out$scc
 #' scc.out$std
 

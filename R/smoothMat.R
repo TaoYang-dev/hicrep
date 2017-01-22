@@ -6,13 +6,15 @@
 #' @details Given a Hi-C \eqn{N*N} matrix, the algorithm scans through each data points (i, j), idnetifies points within its neighborhood of
 #' size h (max distance to (i, j) is \eqn{h*resolution}), and calculates the mean. The mean is subsequently used as the smoothed value of the
 #' point (i, j).
-#' @references Evaluating the reproducibility of Hi-C data. Tao Yang, Feng Yue, Qunhua Li. 2016.
+#' @references HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted correlation coefficient. 
+#' Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
+#' bioRxiv 101386; doi: https://doi.org/10.1101/101386. 
 #' @export
 #' @examples
 #' data(HiCR1)
 #' 
 #' #re-format the row and column names
-#' resol <- 40000 
+#' resol <- 1000000 
 #' ref_Rep1 <- HiCR1[,-c(1,2,3)]
 #' rownames(ref_Rep1) = colnames(ref_Rep1) = HiCR1[,3]-resol/2
 #' 

@@ -4,7 +4,7 @@
 \name{HiCR1}
 \alias{HiCR1}
 \title{HiCR1}
-\format{An object of class \code{data.frame} with 1283 rows and 1286 columns.}
+\format{An object of class \code{data.frame} with 52 rows and 55 columns.}
 \usage{
 HiCR1
 }
@@ -14,7 +14,9 @@ information and coordinates of interaction bins. First is chromosome name, the s
 the contacting bins.
 }
 \references{
-Evaluating the reproducibility of Hi-C data. Tao Yang, Feng Yue, Qunhua Li. 2016.
+HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted correlation coefficient. 
+Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
+bioRxiv 101386; doi: https://doi.org/10.1101/101386.
 }
 \keyword{datasets}
 

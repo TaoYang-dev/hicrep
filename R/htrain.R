@@ -9,13 +9,14 @@
 #' computed at a series of smoothing parameterts in the ascending order. The samllest h at which the
 #' increment of scc is less than 0.01 is saved. This procedure is repeat 10 times, and the mode of the
 #' 10 \code{h}'s is outputed as the estimated optimal neighborhood size.
-#' @references
-#' Evaluating the reproducibility of Hi-C data. Tao Yang, Feng Yue, Qunhua Li. 2016.
+#' @referencesHiCRep: HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted correlation coefficient. 
+#' Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
+#' bioRxiv 101386; doi: https://doi.org/10.1101/101386.
 #' @export
 #' @examples
 #' data(HiCR1)
 #' data(HiCR2)
-#' h_hat = htrain(HiCR1, HiCR2, 40000, 5000000, 0:2)
+#' h_hat = htrain(HiCR1, HiCR2, 1000000, 5000000, 0:2)
 
 
 

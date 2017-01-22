@@ -26,7 +26,7 @@ point (i, j).
 data(HiCR1)
 
 #re-format the row and column names
-resol <- 40000 
+resol <- 1000000 
 ref_Rep1 <- HiCR1[,-c(1,2,3)]
 rownames(ref_Rep1) = colnames(ref_Rep1) = HiCR1[,3]-resol/2
 
@@ -35,6 +35,8 @@ dim(smt_HiC_R1)
 smt_HiC_R1[1:5,1:5]
 }
 \references{
-Evaluating the reproducibility of Hi-C data. Tao Yang, Feng Yue, Qunhua Li. 2016.
+HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted correlation coefficient. 
+Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
+bioRxiv 101386; doi: https://doi.org/10.1101/101386.
 }
 

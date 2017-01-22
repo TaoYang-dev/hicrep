@@ -29,9 +29,6 @@ increment of scc is less than 0.01 is saved. This procedure is repeat 10 times, 
 \examples{
 data(HiCR1)
 data(HiCR2)
-h_hat = htrain(HiCR1, HiCR2, 40000, 5000000, 0:2)
-}
-\references{
-Evaluating the reproducibility of Hi-C data. Tao Yang, Feng Yue, Qunhua Li. 2016.
+h_hat = htrain(HiCR1, HiCR2, 1000000, 5000000, 0:2)
 }
 

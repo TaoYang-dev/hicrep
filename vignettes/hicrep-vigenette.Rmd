@@ -22,12 +22,14 @@ In this Vignette, we explain the method rationale, and provide guidance to use t
 
 Cite the following paper:
 
-Evaluating the reproducibility of Hi-C data. Tao Yang, Feng Yue, Qunhua Li. 2016.
+HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted correlation coefficient
+Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li
+bioRxiv 101386; doi: https://doi.org/10.1101/101386 
 
 
 ## Installation
 
-Download the source package [hicrep_1.0.tar.gz](https://github.com/MonkeyLB/hicrep/raw/master/hicrep_1.0.tar.gz) from Github.
+Download the source package `hicrep_0.99.0.tar.gz` from Github.
 Or install it from Bioconductor.
 
 ## Rationale of method
@@ -62,7 +64,7 @@ A single function `prep` will tranform the HiC matrix, smooth the data with give
 The maximum distance is that contacts beyond this distance will be under investigation. Here we are showing a example that has resolution 40kb, smoothing parameter $h = 1$, and contacts with distance over 5M will not be considered:
 
 ```{r, eval=TRUE}
-Pre_HiC <- prep(HiCR1, HiCR2, 40000, 1, 5000000)
+Pre_HiC <- prep(HiCR1, HiCR2, 1000000, 1, 5000000)
 head(Pre_HiC)
 ```
 The first two columns of the output are the mid-point coordinates of two contact bins, and the last two are the smoothed (or not if $h = 0$) values of the two replicates.
@@ -72,7 +74,7 @@ The first two columns of the output are the mid-point coordinates of two contact
 A natrual question is how to select the smoothing parameter $h$.To select $h$ objectively, we develop a heuristic procedure to search for the optimal smoothing parameter.  Our procedure is designed based on the observation that the correlation between contact maps of replicate samples first increases with the level of smoothness and plateaus when sufficient smoothness is reached. To proceed, we use a pair of reasonably deeply sequenced interaction map as the training data. We randomly partition the data into ten fractionssample 10% of the data, then compute SCC for the sampled dataeach fraction at a series of smoothing parameters in the ascending order, then choose the smallest h at which the increment of the average reproducibility  score is less than 0.01. This procedure is repeated ten times, and the mode among the ten h’s is picked.
 
 ```{r, eval=TRUE}
-h_hat <- htrain(HiCR1, HiCR2, 40000, 5000000, 0:2)
+h_hat <- htrain(HiCR1, HiCR2, 1000000, 5000000, 0:2)
 
 h_hat
 ```
@@ -91,7 +93,7 @@ In previous section, we mention that sequencing depth could be a confounding eff
 #check total number of reads before adjustment
 sum(HiCR1[,-c(1:3)])
 
-DS_HiCR1 <- depth.adj(HiCR1, 200000, out = 0) 
+DS_HiCR1 <- depth.adj(HiCR1, 200000, 1000000, out = 0) 
 
 #check total number of reads after adjustment
 sum(DS_HiCR1[,-c(1:3)])
@@ -105,7 +107,7 @@ When out = 0, the function will return matrix in the original format. When it eq
 After the raw matrices are pre-processed, we are ready to calculate the SCC and its variance. The input file is just the output dataset (i.e., vectorized, smoothed, zero-in-both filtered) from the function `prep`. We also need to specify the resolution of the matrix, and the maximum contacting distance considered.
 
 ```{r, eval=TRUE}
-SCC.out = get.scc(Pre_HiC, 40000, 5000000)
+SCC.out = get.scc(Pre_HiC, 1000000, 5000000)
 
 #SCC score
 SCC.out[[3]]

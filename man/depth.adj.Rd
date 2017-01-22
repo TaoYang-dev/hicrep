@@ -4,12 +4,14 @@
 \alias{depth.adj}
 \title{Sequencing depth adjustment}
 \usage{
-depth.adj(d, size, out = 0)
+depth.adj(d, size, resol, out = 0)
 }
 \arguments{
-\item{d}{a Hi-C matrix needed to be adjusted}
+\item{d}{a Hi-C matrix needed to be adjusted.}
 
-\item{size}{the size the total number one wants to adjust to}
+\item{size}{the size the total number one wants to adjust to.}
+
+\item{resol}{the resolution of the input matrix.}
 
 \item{out}{either 0 or 1. If it is 0, the function returns matrix format; if 1, it returns vection format.}
 }
@@ -26,16 +28,18 @@ data(HiCR1)
 sum(HiCR1[,-c(1:3)])
 
 #Adjust it to 200000 reads, output Hi-C matrix
-HiC_R1_200k = depth.adj(HiCR1, 200000, out = 1)
+HiC_R1_200k = depth.adj(HiCR1, 200000, 1000000, out = 1)
 #check total number of reads after adjustment
 sum(HiC_R1_200k[,-c(1:3)])
 
 #output vector
-HiC_R1_200k = depth.adj(HiCR1, 200000, out = 0)
+HiC_R1_200k = depth.adj(HiCR1, 200000, 1000000, out = 0)
 #check total number of reads after adjustment
 sum(HiC_R1_200k[,3])
 }
 \references{
-Evaluating the reproducibility of Hi-C data. Tao Yang, Feng Yue, Qunhua Li. 2016.
+HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted correlation coefficient. 
+Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
+bioRxiv 101386; doi: https://doi.org/10.1101/101386.
 }
 

@@ -3,6 +3,7 @@ Title: Measuring the reproducibility of Hi-C data
 Version: 0.99.0
 Authors@R: person("Tao", "Yang", email = "xadmyangt@gmail.com", role = c("aut", "cre"))
 Description: This package evaluate the reproducibility of Hi-C intra-chromosome Hi-C data.
+bioViews: Hi-C, reproducibility
 Depends:
     R (>= 3.0.1)
 License: GPL (>= 2.0)

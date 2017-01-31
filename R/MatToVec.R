@@ -24,10 +24,10 @@
 
 MatToVec <- function(dat){
 
-    mat=as.matrix(dat)
+    mat = as.matrix(dat)
 
-    nc=ncol(mat)
-    rc=nrow(mat)
+    nc = ncol(mat)
+    rc = nrow(mat)
   
     test = matrix(0, nc*rc, 3)
     test[,3] = as.vector(mat)

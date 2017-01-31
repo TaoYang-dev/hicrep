@@ -24,30 +24,30 @@
 
 prep <- function(R1, R2, resol, h, max){
 
-  pro_Rep1=R1[,-c(1,2,3)]
-  rownames(pro_Rep1)=colnames(pro_Rep1)=R1[,3]-resol/2
+    pro_Rep1 = R1[,-c(1,2,3)]
+    rownames(pro_Rep1) = colnames(pro_Rep1) = R1[,3]-resol/2
 
-  pro_Rep2=R2[,-c(1,2,3)]
-  rownames(pro_Rep2)=colnames(pro_Rep2)=R2[,3]-resol/2
+    pro_Rep2 = R2[,-c(1,2,3)]
+    rownames(pro_Rep2)=colnames(pro_Rep2)=R2[,3]-resol/2
 
-  if(h==0){
-    vec_Rep1=MatToVec(pro_Rep1)
-    vec_Rep2=MatToVec(pro_Rep2)
-  } else {
-    smt_Rep1 = smoothMat(pro_Rep1, h)
-    smt_Rep2 = smoothMat(pro_Rep2, h)
-    vec_Rep1=MatToVec(smt_Rep1)
-    vec_Rep2=MatToVec(smt_Rep2)
-  }
-  comb = data.frame(vec_Rep1,vec_Rep2[,3])
-  colnames(comb)=c("V1", "V2", "V3", "V4")
-  eidx = which(comb[,3]==0 & comb[,4]==0)
+    if(h == 0){
+        vec_Rep1=MatToVec(pro_Rep1)
+        vec_Rep2=MatToVec(pro_Rep2)
+    } else {
+        smt_Rep1 = smoothMat(pro_Rep1, h)
+        smt_Rep2 = smoothMat(pro_Rep2, h)
+        vec_Rep1 = MatToVec(smt_Rep1)
+        vec_Rep2 = MatToVec(smt_Rep2)
+    }
+    comb = data.frame(vec_Rep1,vec_Rep2[,3])
+    colnames(comb) = c("V1", "V2", "V3", "V4")
+    eidx = which(comb[,3] == 0 & comb[,4] == 0)
 
-  if (length(eidx) == 0) {
-    filt = comb
-  } else {
-    filt = comb[-eidx,]
-  }
+    if (length(eidx) == 0) {
+        filt = comb
+    } else {
+        filt = comb[-eidx,]
+    }
 
-  return(filt)
+    return(filt)
 }

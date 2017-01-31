@@ -56,5 +56,5 @@ get.scc <- function (dat, resol, max){
     scc = corr%*%wei/sum(wei)
     std = sqrt(sum(wei^2*var(corr))/(sum(wei))^2)
 
-    return(list(corr=corr, wei=wei, scc=scc, std=std))
+    return(list(corr = corr, wei = wei, scc = scc, std = std))
 }

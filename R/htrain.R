@@ -18,33 +18,33 @@
 #' @examples
 #' data(HiCR1)
 #' data(HiCR2)
-#' h_hat = htrain(HiCR1, HiCR2, 1000000, 5000000, 0:2)
+#' h_hat <- htrain(HiCR1, HiCR2, 1000000, 5000000, 0:2)
 
 
 
 htrain <- function(R1, R2, resol, max, range){
 
-  corr = matrix(0, max(range)+1, 2)
-  corr[,1] = range
-  for (i in range){
-    print(c("smoothing:", i))
-    pre = prep(R1, R2, resol, i)
-    s_cor = array()
-    for (j in 1:10){
-      idx = sample(1:nrow(pre), floor(nrow(pre)*0.1), replace=FALSE)
-      sub = pre[idx,]
-      s_cor[j] = get.scc(sub, resol, max)[[3]]
-    }
-    corr[i+1, 2] = round(mean(s_cor),4)
-    if (i > 0){
-      if ((corr[i+1,2]-corr[i,2])<0.01){
-        break
+    corr = matrix(0, max(range)+1, 2)
+    corr[,1] = range
+    for (i in range){
+        print(c("smoothing:", i))
+        pre = prep(R1, R2, resol, i)
+        s_cor = array()
+        for (j in 1:10){
+            idx = sample(1:nrow(pre), floor(nrow(pre)*0.1), replace=FALSE)
+            sub = pre[idx,]
+            s_cor[j] = get.scc(sub, resol, max)[[3]]
+        }
+        corr[i+1, 2] = round(mean(s_cor),4)
+        if (i > 0){
+            if ((corr[i+1,2] - corr[i,2])<0.01){
+                break
+            }
+        }
       }
+      if (i == max(range)){
+          print("Note: It's likely that your searching range is too narrow. Try to expand the range and rerun it")
     }
-  }
-  if (i == max(range)){
-    print("Note: It's likely that your searching range is too narrow. Try to expand the range and rerun it")
-  }
-  return(corr[i,1])
+    return(corr[i,1])
 }
 

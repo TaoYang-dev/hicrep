@@ -24,7 +24,7 @@ bioRxiv 101386; doi: https://doi.org/10.1101/101386
 
 ## Installation
 
-Download the source package [hicrep_0.99.0.tar.gz](https://github.com/MonkeyLB/hicrep/raw/master/hicrep_1.0.tar.gz) from Github.
+Download the source package [hicrep_0.99.1.tar.gz](https://github.com/MonkeyLB/hicrep/raw/master/hicrep_1.0.tar.gz) from Github.
 Or install it from Bioconductor.
 
 ## Rationale of method
@@ -35,4 +35,4 @@ In the second step, we stratify the Hi-C reads by the distance of contacting loc
 
 Figure1. `hicrep` pipeline schematic representation
                           
-![Figure1. `hicrep` pipeline schematic representation](https://raw.githubusercontent.com/MonkeyLB/hicrep/master/hicrep-pipeline.JPG)
+![Figure1. `hicrep` pipeline schematic representation](https://github.com/MonkeyLB/hicrep/blob/master/vignettes/hicrep-pipeline.JPG)

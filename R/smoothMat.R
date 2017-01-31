@@ -25,26 +25,26 @@
 
 smoothMat <- function(dat, h){
 
-  matr=as.matrix(dat)
+    matr = as.matrix(dat)
 
-  c = ncol(matr)
-  r = nrow(matr)
+    c = ncol(matr)
+    r = nrow(matr)
 
-  smd_matr=matrix(0,r,c)
+    smd_matr = matrix(0,r,c)
 
-  for (i in 1:r){
-    for (j in 1:c){
+    for (i in 1:r){
+        for (j in 1:c){
 
-      rlb =ifelse(i-h > 0, i-h, 1)
-      rrb =ifelse(i+h < r, i+h, r)
-      clb =ifelse(j-h > 0, j-h, 1)
-      crb =ifelse(j+h < c, j+h, c)
-      smd_matr[i,j] = mean(matr[rlb:rrb, clb:crb])
+            rlb = ifelse(i-h > 0, i-h, 1)
+            rrb = ifelse(i+h < r, i+h, r)
+            clb = ifelse(j-h > 0, j-h, 1)
+            crb = ifelse(j+h < c, j+h, c)
+            smd_matr[i,j] = mean(matr[rlb:rrb, clb:crb])
+        }
     }
-  }
 
-  colnames(smd_matr)=colnames(dat)
-  rownames(smd_matr)=rownames(dat)
+    colnames(smd_matr)=colnames(dat)
+    rownames(smd_matr)=rownames(dat)
 
-  return(smd_matr)
+    return(smd_matr)
 }

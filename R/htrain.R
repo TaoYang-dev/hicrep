@@ -29,7 +29,7 @@ htrain <- function(R1, R2, resol, max, range){
     pre = prep(R1, R2, resol, i)
     s_cor = array()
     for (j in 1:10){
-      idx = sample(1:nrow(pre), floor(nrow(pre)*0.1), replace=F)
+      idx = sample(1:nrow(pre), floor(nrow(pre)*0.1), replace=FALSE)
       sub = pre[idx,]
       s_cor[j] = get.scc(sub, resol, max)[[3]]
     }

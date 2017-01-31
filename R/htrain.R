@@ -5,6 +5,7 @@
 #' @param resol An integer indicating the resolution of the Hi-C matrix.
 #' @param max An integer indicating the maximum distance of interaction that is considered.
 #' @param range A vector of consecutive integers from which the optimal smoothing parameter is searched, starting from zero (i.g., 0:10).
+#' @return a integer estimated to be the optimal smoothing parameter.
 #' @details A fraction (10\%) of data are first randomly sampled, then the scc for the sampled data is
 #' computed at a series of smoothing parameterts in the ascending order. The samllest h at which the
 #' increment of scc is less than 0.01 is saved. This procedure is repeat 10 times, and the mode of the

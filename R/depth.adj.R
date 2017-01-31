@@ -29,29 +29,29 @@
 
 depth.adj = function(d, size, resol, out=0){
 
-  cd=d[,-c(1,2,3)]
-  rownames(cd)=colnames(cd)=d[,3]-resol/2
+    cd=d[,-c(1,2,3)]
+    rownames(cd)=colnames(cd)=d[,3]-resol/2
 
-  temp = MatToVec(cd)
-  p1 = temp[,3]/sum(temp[,3])+.Machine$double.eps
+    temp = MatToVec(cd)
+    p1 = temp[,3]/sum(temp[,3])+.Machine$double.eps
 
-  subrd = sample(1:nrow(temp), size, prob=p1, replace=TRUE)
-  freq = table(subrd)
-  idx=as.double(names(freq))
-  vec=as.vector(freq)
-  temp[,3]=0
-  temp[idx,3] = vec
+    subrd = sample(1:nrow(temp), size, prob=p1, replace=TRUE)
+    freq = table(subrd)
+    idx=as.double(names(freq))
+    vec=as.vector(freq)
+    temp[,3]=0
+    temp[idx,3] = vec
+  
+    ##turn it back to matrix
 
-  #turn it back to matrix
+    ntemp = temp[which(temp[,3]!=0),]
+    ntemp[,1] = (ntemp[,1]+resol/2)/resol
+    ntemp[,2] = (ntemp[,2]+resol/2)/resol
+    cd[cd>0]=0
+    cd[ntemp[,c(1,2)]] = ntemp[,3]
 
-  ntemp = temp[which(temp[,3]!=0),]
-  ntemp[,1] = (ntemp[,1]+resol/2)/resol
-  ntemp[,2] = (ntemp[,2]+resol/2)/resol
-  cd[cd>0]=0
-  cd[ntemp[,c(1,2)]] = ntemp[,3]
-
-  cdm = cbind(d[,c(1,2,3)], cd)
-  colnames(cdm)=rownames(cdm)=NULL
-  if(out==1){return(temp)}
-  else return(cdm)
+    cdm = cbind(d[,c(1,2,3)], cd)
+    colnames(cdm)=rownames(cdm)=NULL
+    if(out==1){return(temp)}
+    else return(cdm)
 }

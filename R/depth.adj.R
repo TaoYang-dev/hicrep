@@ -18,17 +18,17 @@
 #' sum(HiCR1[,-c(1:3)])
 #'
 #' #Adjust it to 200000 reads, output Hi-C matrix
-#' HiC_R1_200k = depth.adj(HiCR1, 200000, 1000000, out = 1)
+#' HiC_R1_200k = depth.adj(HiCR1, 200000, 1000000, out = 0)
 #' #check total number of reads after adjustment
 #' sum(HiC_R1_200k[,-c(1:3)])
 #'
 #' #output vector
-#' HiC_R1_200k = depth.adj(HiCR1, 200000, 1000000, out = 0)
+#' HiC_R1_200k = depth.adj(HiCR1, 200000, 1000000, out = 1)
 #' #check total number of reads after adjustment
 #' sum(HiC_R1_200k[,3])
 
-depth.adj = function(d, size, resol, out=0){
-
+depth.adj = function(d, size, resol, out = 0){
+  
     cd = d[,-c(1,2,3)]
     rownames(cd) = colnames(cd) = d[,3]-resol/2
 

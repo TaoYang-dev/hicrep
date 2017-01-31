@@ -31,7 +31,7 @@ data(HiCR1)
 data(HiCR2)
 
 #Estimate the optimial smoothing neighborhood size parameter
-h_hat = htrain(HiCR1, HiCR2, 1000000, 5000000, 0:2)
+h_hat <- htrain(HiCR1, HiCR2, 1000000, 5000000, 0:2)
 h_hat <- 0
 processed <- prep(HiCR1, HiCR2, 1000000, h_hat, 5000000)
 

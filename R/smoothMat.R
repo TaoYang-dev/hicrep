@@ -1,13 +1,16 @@
 #' smooth the Hi-C matrix with mean filter
 #'
 #' @param dat A \eqn{N*N} Hi-C intra-chromosome matrix.
-#' @param h The neighborhood size parameter. It is the distance of smoothing target bin to the boundary of the neighborhood in the unit of resolution.
+#' @param h The neighborhood size parameter. It is the distance of smoothing
+#' target bin to the boundary of the neighborhood in the unit of resolution.
 #' @return a smoothed (or not when resol = 0), zero-filtered and vectorized Hi-C data.
-#' @details Given a Hi-C \eqn{N*N} matrix, the algorithm scans through each data points (i, j), idnetifies points within its neighborhood of
-#' size h (max distance to (i, j) is \eqn{h*resolution}), and calculates the mean. The mean is subsequently used as the smoothed value of the
-#' point (i, j).
-#' @references HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted correlation coefficient. 
-#' Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
+#' @details Given a Hi-C \eqn{N*N} matrix, the algorithm scans through each data 
+#' points (i, j), idnetifies points within its neighborhood of size h (max distance 
+#' to (i, j) is \eqn{h*resolution}), and calculates the mean. The mean is subsequently
+#' used as the smoothed value of the point (i, j).
+#' @references HiCRep: assessing the reproducibility of Hi-C data using a 
+#' stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, Galip Gurkan 
+#' Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
 #' bioRxiv 101386; doi: https://doi.org/10.1101/101386. 
 #' @export
 #' @examples

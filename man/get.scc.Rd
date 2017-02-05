@@ -20,11 +20,11 @@ A list of results including stratum-specific correlation
 coefficients, weights, stratum-adjusted correlation coefficient 
 (scc), and the asymptotic standard deviation of scc.
 \itemize{
-  \item{corr    }{A vector that contains the stratum specific Pearson 
-               correlation coefficients.}
-   \item{wei    }{A vector that contains the weights for each stratum.}
-   \item{scc    }{Stratum-adjusted correlation coefficients.}
-   \item{std    }{The asymptotic standard deviation of scc.}
+    \item{corr    }{A vector that contains the stratum specific Pearson 
+                correlation coefficients.}
+    \item{wei    }{A vector that contains the weights for each stratum.}
+    \item{scc    }{Stratum-adjusted correlation coefficients.}
+    \item{std    }{The asymptotic standard deviation of scc.}
 }
 }
 \description{

@@ -1,20 +1,25 @@
 #' calculate the stratum-adjusted correlation coefficient
 #'
-#' @param dat A matrix of four columns. The first two are the mid-point coordinates of two interacting bin.
+#' @param dat A matrix of four columns. The first two are the mid-point coordinates of two
+#' interacting bin.
 #' @param resol An integer indicating the resolution of the Hi-C matrix.
 #' @param max An integer indicating the maximum distance of interaction that is considered.
-#' @return A list of results including stratum-specific correlation coefficients, weights, stratum-adjusted correlation
-#' coefficient (scc), and the asymptotic standard deviation of scc.
-#' \itemize{
-#'  \item{corr }{A vector that contains the stratum specific Pearson correlation coefficients.}
-#'  \item{wei }{A vector that contains the weights for each stratum.}
-#'  \item{scc }{Stratum-adjusted correlation coefficients.}
-#'  \item{std }{The asymptotic standard deviation of scc. }
-#' }
-#' @details The function stratifies the Hi-C reads count according to their interacting distance, calculates the Pearson
-#' correlation coefficient for each stratum, then aggregrates them using a weighted average.
-#' @references HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted correlation coefficient. 
-#' Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
+#' @return A list of results including stratum-specific correlation coefficients, weights, 
+#' stratum-adjusted correlation coefficient (scc), and the asymptotic standard deviation 
+#' of scc.
+#'    \itemize{
+#'        \item{corr }{A vector that contains the stratum specific Pearson correlation 
+#'                        coefficients.}
+#'        \item{wei }{A vector that contains the weights for each stratum.}
+#'        \item{scc }{Stratum-adjusted correlation coefficients.}
+#'        \item{std }{The asymptotic standard deviation of scc. }
+#'    }
+#' @details The function stratifies the Hi-C reads count according to their interacting 
+#' distance, calculates the Pearson correlation coefficient for each stratum, then 
+#' aggregrates them using a weighted average.
+#' @references HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted
+#' correlation coefficient. Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, 
+#' William Stafford Noble, Feng Yue, Qunhua Li. 
 #' bioRxiv 101386; doi: https://doi.org/10.1101/101386.
 #' @importFrom stats cor var
 #' @export

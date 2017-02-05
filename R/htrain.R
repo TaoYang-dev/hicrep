@@ -15,8 +15,8 @@
 #' the mode of the 10 \code{h}'s is outputed as the estimated optimal 
 #' neighborhood size.
 #' @references HiCRep: HiCRep: assessing the reproducibility of Hi-C data using
-#' a stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, 
-#' Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
+#' a stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, Galip 
+#' Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
 #' bioRxiv 101386; doi: https://doi.org/10.1101/101386.
 #' @importFrom stats cov cor
 #' @export
@@ -48,7 +48,8 @@ htrain <- function(R1, R2, resol, max, range){
         }
         }
         if (i == max(range)){
-            print("Note: It's likely that your searching range is too narrow. Try to expand the range and rerun it")
+            print("Note: It's likely that your searching range is too narrow. 
+                    Try to expand the range and rerun it")
         }
     return(corr[i,1])
 }

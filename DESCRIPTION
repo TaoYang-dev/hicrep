@@ -5,7 +5,7 @@ Authors@R: person("Tao", "Yang", email = "xadmyangt@gmail.com", role = c("aut", 
 Description: This package evaluate the reproducibility of Hi-C intra-chromosome Hi-C data.
 biocViews: Hi-C, reproducibility
 Depends:
-    R (>= 3.3), stats
+    R (>= 3.4), stats
 License: GPL (>= 2.0)
 Encoding: UTF-8
 LazyData: true

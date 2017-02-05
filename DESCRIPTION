@@ -1,6 +1,6 @@
 Package: hicrep
 Title: Measuring the reproducibility of Hi-C data
-Version: 0.99.9
+Version: 0.99.10
 Authors@R: person("Tao", "Yang", email = "xadmyangt@gmail.com", role = c("aut", "cre"))
 Description: This package evaluate the reproducibility of Hi-C intra-chromosome Hi-C data.
 biocViews: Sequencing, HiC, QualityControl

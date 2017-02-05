@@ -47,4 +47,3 @@ htrain <- function(R1, R2, resol, max, range){
     }
     return(corr[i,1])
 }
-

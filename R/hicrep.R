@@ -1,19 +1,19 @@
 #' HiCRep pipeline calculates reproducibility of Hi-C intrachromosome data
 #'
-#' The pipelne is a two-step method. The first step is to smooth the Hi-C matrix, 
-#' and the #' second step is to calculate the stratum-adjusted correlation 
-#' coefficient (scc). The method also provides the estimation of asymptotic 
-#' standard deviation of scc.
+#' The pipelne is a two-step method. The first step is to smooth the Hi-C 
+#' matrix, and the #' second step is to calculate the stratum-adjusted 
+#' correlation coefficient (scc). The method also provides the estimation
+#' of asymptotic standard deviation of scc.
 #'
 #' @details
-#'    \itemize{
-#'        \item{Package: }{hicrep}
-#'        \item{Type: }{Package}
-#'        \item{Version: }{0.99.5}
-#'        \item{Date: }{2016-12-5}
-#'        \item{License: }{GPL-2}
-#'        \item{LazyLoad: }{Yes}
-#'    }
+#' \itemize{
+#'   \item{Package:    }{hicrep}
+#'   \item{Type:    }{Package}
+#'   \item{Version:    }{0.99.6}
+#'   \item{Date:    }{2017-2-5}
+#'   \item{License:    }{GPL-2}
+#'   \item{LazyLoad:    }{Yes}
+#' }
 #'
 #' The main functions are \code{\link{prep}}, \code{\link{get.scc}} and
 #' \code{\link{htrain}}. The function \code{\link{prep}} will take the 

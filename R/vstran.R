@@ -11,7 +11,8 @@
 #' distances have a much larger dynamic range than those with long interaction
 #' distances. To mitigate this difference, we rank the contact counts in each
 #' stratum separately, and then normalize the ranks by the total number of 
-#' observations in each stratum, such that all strata share a similar dynamic range.
+#' observations in each stratum, such that all strata share a similar dynamic 
+#' range.
 #' @importFrom stats ecdf
 #' @export
 #' @examples

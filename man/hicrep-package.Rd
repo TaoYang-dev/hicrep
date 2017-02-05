@@ -13,12 +13,12 @@ of asymptotic standard deviation of scc.
 }
 \details{
 \itemize{
-  \item{Package:    }{hicrep}
-  \item{Type:    }{Package}
-  \item{Version:    }{0.99.6}
-  \item{Date:    }{2017-2-5}
-  \item{License:    }{GPL-2}
-  \item{LazyLoad:    }{Yes}
+    \item{Package:    }{hicrep}
+    \item{Type:    }{Package}
+    \item{Version:    }{0.99.6}
+    \item{Date:    }{2017-2-5}
+    \item{License:    }{GPL-2}
+    \item{LazyLoad:    }{Yes}
 }
 
 The main functions are \code{\link{prep}}, \code{\link{get.scc}} and

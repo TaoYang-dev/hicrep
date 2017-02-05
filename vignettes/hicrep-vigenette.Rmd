@@ -4,9 +4,9 @@ author: "Tao Yang  <xadmyangt@gmail.com>"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Evaluate reproducibility of Hi-C data with `hicrep`}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+    %\VignetteIndexEntry{Evaluate reproducibility of Hi-C data with `hicrep`}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
 ---
 
 ##Introduction

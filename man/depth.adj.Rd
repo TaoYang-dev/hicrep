@@ -7,14 +7,14 @@
 depth.adj(d, size, resol, out = 0)
 }
 \arguments{
-\item{d}{a Hi-C matrix needed to be adjusted.}
+    \item{d}{a Hi-C matrix needed to be adjusted.}
 
-\item{size}{the size the total number one wants to adjust to.}
+    \item{size}{the size the total number one wants to adjust to.}
 
-\item{resol}{the resolution of the input matrix.}
+    \item{resol}{the resolution of the input matrix.}
 
-\item{out}{either 0 or 1. If it is 0, the function returns matrix 
-format; if 1, it returns vection format.}
+    \item{out}{either 0 or 1. If it is 0, the function returns matrix 
+    format; if 1, it returns vection format.}
 }
 \value{
 a matrix or vec which has the adjusted total number of reads.

@@ -28,7 +28,7 @@
 #' sum(HiC_R1_200k[,3])
 
 depth.adj = function(d, size, resol, out = 0){
-  
+
     cd = d[,-c(1,2,3)]
     rownames(cd) = colnames(cd) = d[,3]-resol/2
 
@@ -41,7 +41,7 @@ depth.adj = function(d, size, resol, out = 0){
     vec = as.vector(freq)
     temp[,3] = 0
     temp[idx,3] = vec
-  
+
     ##turn it back to matrix
 
     ntemp = temp[which(temp[,3]!=0),]

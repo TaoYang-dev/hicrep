@@ -7,19 +7,24 @@
 vstran(d)
 }
 \arguments{
-\item{d}{a matrix or data.frame that has two columns, each column is the Hi-C read counts data in a replicate.}
+\item{d}{a matrix or data.frame that has two columns, each column is 
+the Hi-C read counts data in a replicate.}
 }
 \value{
-a matrix of two columns, each represents a transformed read counts of a replicate.
+a matrix of two columns, each represents a transformed read 
+counts of a replicate.
 }
 \description{
-The function finds the rank of the data and rescale the ranks in the range of (0, 1).
+The function finds the rank of the data and rescale the ranks in the 
+range of (0, 1).
 }
 \details{
-In Hi-C data, the read counts for contacts with short interaction distances have a much larger
-dynamic range than those with long interaction distances. To mitigate this difference, we rank the contact
-counts in each stratum separately, and then normalize the ranks by the total number of observations in each
-stratum, such that all strata share a similar dynamic range.
+In Hi-C data, the read counts for contacts with short interaction
+distances have a much larger dynamic range than those with long interaction
+distances. To mitigate this difference, we rank the contact counts in each
+stratum separately, and then normalize the ranks by the total number of 
+observations in each stratum, such that all strata share a similar dynamic 
+range.
 }
 \examples{
 data(HiCR1)

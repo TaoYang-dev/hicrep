@@ -15,16 +15,18 @@ prep(R1, R2, resol, h, max)
 
 \item{h}{an integer indicating the size of the smoothing neighborhood.}
 
-\item{max}{an integer indicating the maximum distance of interaction that is considered.}
+\item{max}{an integer indicating the maximum distance of interaction that
+is considered.}
 }
 \value{
-a smoothed (or not when resol = 0), zero-filtered and vectorized Hi-C data. The first two columns
-are bin start and bin ends, and the last two columns are reads number if replicate 1 and replicate 2 respectively.
+a smoothed (or not when resol = 0), zero-filtered and vectorized 
+Hi-C data. The first two columns are bin start and bin ends, and the last 
+two columns are reads number if replicate 1 and replicate 2 respectively.
 }
 \description{
 Format pairs of Hi-C matrices, smooth the matrices with matrix resolution,
-and maximum distance of interaction considering specified by user, filter out the
-bins that has no reads in both replciates
+and maximum distance of interaction considering specified by user, filter 
+out the bins that has no reads in both replciates.
 }
 \examples{
 data(HiCR1)
@@ -33,8 +35,9 @@ processed <- prep(HiCR1, HiCR2, 1000000, 0, 5000000)
 head(processed)
 }
 \references{
-HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted correlation coefficient. 
-Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
-bioRxiv 101386; doi: https://doi.org/10.1101/101386.
+HiCRep: assessing the reproducibility of Hi-C data using a 
+stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, Galip
+Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua 
+Li. bioRxiv 101386; doi: https://doi.org/10.1101/101386.
 }
 

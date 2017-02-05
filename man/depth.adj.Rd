@@ -13,14 +13,17 @@ depth.adj(d, size, resol, out = 0)
 
 \item{resol}{the resolution of the input matrix.}
 
-\item{out}{either 0 or 1. If it is 0, the function returns matrix format; if 1, it returns vection format.}
+\item{out}{either 0 or 1. If it is 0, the function returns matrix 
+format; if 1, it returns vection format.}
 }
 \value{
 a matrix or vec which has the adjusted total number of reads.
 }
 \description{
-Sequencing depth could be a confounding effect when measuring the reproducibility. This function will adjust
-sequencing depth of a given matrix to a specified total number of reads through random sampling.
+Sequencing depth could be a confounding effect when measuring the 
+reproducibility. This function will adjust sequencing depth of a 
+given matrix to a specified total number of reads through random
+sampling.
 }
 \examples{
 data(HiCR1)
@@ -38,8 +41,9 @@ HiC_R1_200k = depth.adj(HiCR1, 200000, 1000000, out = 1)
 sum(HiC_R1_200k[,3])
 }
 \references{
-HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted correlation coefficient. 
-Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
-bioRxiv 101386; doi: https://doi.org/10.1101/101386.
+HiCRep: assessing the reproducibility of Hi-C data using 
+a stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, 
+Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng
+Yue, Qunhua Li. bioRxiv 101386; doi: https://doi.org/10.1101/101386.
 }
 

@@ -7,15 +7,21 @@
 MatToVec(dat)
 }
 \arguments{
-\item{dat}{a Hi-C intra-chromosome matrix in the format of \eqn{N*N} (No chromsome name and coordinates columns).}
+\item{dat}{a Hi-C intra-chromosome matrix in the format of \eqn{N*N} 
+(No chromsome name and coordinates columns).}
 }
 \value{
-a vectorized Hi-C data. The first two columns are mid-point coordinates of the two contacting bins. The third column is read numbers of the contacts.
+a vectorized Hi-C data. The first two columns are mid-point 
+coordinates of the two contacting bins. The third column is read numbers
+of the contacts.
 }
 \description{
-The matrix format is the standard input for the HiCRep reproducibility analysis. It has the dimension of \eqn{N*(3+N)}.
-The additional first three columns are chromosome name, and mid-point coordinates of two contacting bins. The converted format has three columns.
-The first two columns are mid-point coordinates of two contacting bins, and the third column is the reads number in each bin.
+The matrix format is the standard input for the HiCRep reproducibility 
+analysis. It has the dimension of \eqn{N*(3+N)}. The additional first 
+three columns are chromosome name, and mid-point coordinates of two 
+contacting bins. The converted format has three columns. The first two
+columns are mid-point coordinates of two contacting bins, and the third
+column is the reads number in each bin.
 }
 \examples{
 data(HiCR1)
@@ -29,8 +35,10 @@ vec_HiC_R1 <- MatToVec(ref_Rep1)
 head(vec_HiC_R1)
 }
 \references{
-HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted correlation coefficient. 
-Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
+HiCRep: assessing the reproducibility of Hi-C data using a 
+stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, 
+Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng 
+Yue, Qunhua Li. 
 bioRxiv 101386; doi: https://doi.org/10.1101/101386.
 }
 

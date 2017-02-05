@@ -13,9 +13,11 @@ htrain(R1, R2, resol, max, range)
 
 \item{resol}{An integer indicating the resolution of the Hi-C matrix.}
 
-\item{max}{An integer indicating the maximum distance of interaction that is considered.}
+\item{max}{An integer indicating the maximum distance of interaction 
+that is considered.}
 
-\item{range}{A vector of consecutive integers from which the optimal smoothing parameter is searched, starting from zero (i.g., 0:10).}
+\item{range}{A vector of consecutive integers from which the optimal 
+smoothing parameter is searched, starting from zero (i.g., 0:10).}
 }
 \value{
 a integer estimated to be the optimal smoothing parameter.
@@ -24,10 +26,12 @@ a integer estimated to be the optimal smoothing parameter.
 Train the smoothing parameter (neighborhood size).
 }
 \details{
-A fraction (10\%) of data are first randomly sampled, then the scc for the sampled data is
-computed at a series of smoothing parameterts in the ascending order. The samllest h at which the
-increment of scc is less than 0.01 is saved. This procedure is repeat 10 times, and the mode of the
-10 \code{h}'s is outputed as the estimated optimal neighborhood size.
+A fraction (10\%) of data are first randomly sampled, then 
+the scc for the sampled data is computed at a series of smoothing 
+parameterts in the ascending order. The samllest h at which the increment
+of scc is less than 0.01 is saved. This procedure is repeat 10 times, and 
+the mode of the 10 \code{h}'s is outputed as the estimated optimal 
+neighborhood size.
 }
 \examples{
 data(HiCR1)
@@ -35,8 +39,9 @@ data(HiCR2)
 h_hat <- htrain(HiCR1, HiCR2, 1000000, 5000000, 0:2)
 }
 \references{
-HiCRep: HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted correlation coefficient. 
-Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
-bioRxiv 101386; doi: https://doi.org/10.1101/101386.
+HiCRep: HiCRep: assessing the reproducibility of Hi-C data 
+using a stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang,
+Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, 
+Qunhua Li. bioRxiv 101386; doi: https://doi.org/10.1101/101386.
 }
 

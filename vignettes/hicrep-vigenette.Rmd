@@ -72,13 +72,13 @@ of the regions with elevated interaction, consequently enhancing the domain
 structures. We use a 2D moving window average filter to smooth the Hi-C 
 contact map. This choice is made for the simplicity and fast computation of 
 mean filter, and the rectangular shape of Hi-C compartments.
- 
+
 In the second step, we stratify the Hi-C reads by the distance of contacting
 loci, calculate the Pearson correlations within each stratum, and then 
 summarize the stratum-specific correlation coefficients into an aggregated 
 statistic. We name it as Stratum-adjusted Correlation Coefficient (SCC). 
 For the methodology details, please refer to our manuscript.
- 
+
 ![Figure1. `hicrep` pipeline schematic representation]
 (https://github.com/MonkeyLB/hicrep/blob/master/vignettes/
 hicrep-pipeline.JPG)

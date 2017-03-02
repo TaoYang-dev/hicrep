@@ -1,7 +1,7 @@
 ---
 title: "Evaluate reproducibility of Hi-C data with `hicrep`"
 author: "Tao Yang  <xadmyangt@gmail.com>"
-date: "`r Sys.Date()`"
+date: "3/1/2017"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{Evaluate reproducibility of Hi-C data with `hicrep`}
@@ -203,7 +203,7 @@ SCC.out[[3]]
 
 #Standard deviation of SCC
 SCC.out[[4]]
-
+sessionInfo()
 ```
 
 The output is a list of results including stratum specific Pearson 

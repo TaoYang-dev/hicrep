@@ -71,6 +71,9 @@ get.scc <- function (dat, resol, max){
         return(list(corr = corr, wei = wei))
     }
     
+    grp <- match(gdist, seq_len(ub) * resol)
+    idx <- split(seq_len(nrow(gdist)), grp)
+  
     st = sapply(idx, est.scc)
     corr0 = unlist(st[1,])
     wei0 = unlist(st[2,])

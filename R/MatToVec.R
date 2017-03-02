@@ -41,10 +41,8 @@ MatToVec <- function(dat){
     test = matrix(0, nc*rc, 3)
     test[,3] = as.vector(mat)
     test[,2] = as.double(rep(rownames(mat), nc))
-    tmp = NULL
-    for (i in as.double(colnames(mat))){
-        tmp = c(tmp, rep(i, rc))
-    }
+    
+    tmp = rep(as.double(colnames(mat)), each=rc)
     test[,1] = tmp
     return(test)
 }

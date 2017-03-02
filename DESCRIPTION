@@ -6,6 +6,8 @@ Description: This package evaluate the reproducibility of Hi-C intra-chromosome 
 biocViews: Sequencing, HiC, QualityControl
 Depends:
     R (>= 3.4), stats
+Imports:
+    stats
 License: GPL (>= 2.0)
 Encoding: UTF-8
 LazyData: true

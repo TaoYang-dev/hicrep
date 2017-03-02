@@ -39,7 +39,7 @@ depth.adj = function(d, size, resol, out = 0){
     temp = MatToVec(cd)
     p1 = temp[,3]/sum(temp[,3])+.Machine$double.eps
 
-    subrd = sample(1:nrow(temp), size, prob=p1, replace=TRUE)
+    subrd = sample(nrow(temp), size, prob=p1, replace=TRUE)
     freq = table(subrd)
     idx = as.double(names(freq))
     vec = as.vector(freq)

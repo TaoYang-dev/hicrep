@@ -32,7 +32,7 @@ htrain <- function(R1, R2, resol, max, range){
     corr = matrix(0, max(range)+1, 2)
     corr[,1] = range
     for (i in range){
-        print(c("smoothing:", i))
+        message(c("smoothing:", i))
         pre = prep(R1, R2, resol, i)
         s_cor = array()
         for (j in 1:10){
@@ -48,7 +48,7 @@ htrain <- function(R1, R2, resol, max, range){
         }
         }
         if (i == max(range)){
-            print("Note: It's likely that your searching range is too narrow. 
+            warning("Note: It's likely that your searching range is too narrow. 
                     Try to expand the range and rerun it")
         }
     return(corr[i,1])

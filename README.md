@@ -25,7 +25,9 @@ bioRxiv 101386; doi: https://doi.org/10.1101/101386
 ## Installation
 
 Download the source package [hicrep_0.99.2.tar.gz](https://github.com/MonkeyLB/hicrep/blob/master/hicrep_0.99.2.tar.gz) from Github.
-Or install it from Bioconductor.
+Or Install it from Bioconductor:
+    source("https://bioconductor.org/biocLite.R")
+    biocLite("hicrep")
 
 ## Rationale of method
 

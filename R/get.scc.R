@@ -72,7 +72,7 @@ get.scc <- function (dat, resol, max){
     }
     
     grp <- match(gdist, seq_len(ub) * resol)
-    idx <- split(seq_len(nrow(gdist)), grp)
+    idx <- split(seq_len(length(gdist)), grp)
   
     st = sapply(idx, est.scc)
     corr0 = unlist(st[1,])

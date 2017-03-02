@@ -13,7 +13,7 @@ Description: Hi-C is a powerful technology for studying genome-wide chromatin in
     of cell lineages than existing approaches. This R package `hicrep` implements our approach.
 biocViews: Sequencing, HiC, QualityControl
 Depends:
-    R (>= 3.4), stats
+    R (>= 3.4)
 Imports:
     stats
 License: GPL (>= 2.0)

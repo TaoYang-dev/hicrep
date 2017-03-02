@@ -35,33 +35,50 @@
 #' scc.out$std
 
 
-
 get.scc <- function (dat, resol, max){
-
-    corr = cov = wei = n = array()
-    ub = floor(max/resol)
+  
+    ub <- floor(max/resol)
+    corr <- array(ub)
+    cov <- array(ub)
+    wei <- array(ub)
+    n <- array(ub)
+  
     gdist = abs(dat[,2]-dat[,1])
-    for (i in 1:ub){
-        idx = which(gdist == i*resol)
+
+    est.scc = function(idx){
+    
         if (length(idx) != 0){
-            n[i] = length(idx)
+            
+            n = length(idx)
             ffd = dat[idx,c(3,4)]
             nd = vstran(ffd)
-        if (length(unique(ffd[,1])) != 1 & length(unique(ffd[,2])) != 1) {
-            corr[i] = cor(ffd[,1], ffd[,2])
-            cov[i] = cov(nd[,1], nd[,2])
-            wei[i] = sqrt(var(nd[,1])*var(nd[,2]))*n[i]
+            
+            if (length(unique(ffd[,1])) != 1 & length(unique(ffd[,2])) != 1) {
+                corr = cor(ffd[,1], ffd[,2])
+                cov = cov(nd[,1], nd[,2])
+                wei = sqrt(var(nd[,1])*var(nd[,2]))*n
+            } else {
+                corr = NA
+                cov = NA
+                wei = NA
+            }
         } else {
-            corr[i] = cov[i] = wei[i] = NA
+            corr = NA 
+            cov = NA
+            wei = NA
         }
-        } else {
-            corr[i] = cov[i] = wei[i] = NA
-        }
-    }
-    corr = corr[!is.na(corr)]
-    wei = wei[!is.na(wei)]
-    scc = corr%*%wei/sum(wei)
-    std = sqrt(sum(wei^2*var(corr))/(sum(wei))^2)
 
+        return(list(corr = corr, wei = wei))
+    }
+    
+    st = sapply(idx, est.scc)
+    corr0 = unlist(st[1,])
+    wei0 = unlist(st[2,])
+
+    corr = corr0[!is.na(corr0)]
+    wei = wei0[!is.na(wei0)]
+    scc = corr %*% wei/sum(wei)
+    std = sqrt(sum(wei^2*var(corr))/(sum(wei))^2)
+  
     return(list(corr = corr, wei = wei, scc = scc, std = std))
 }

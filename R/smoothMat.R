@@ -36,14 +36,17 @@ smoothMat <- function(dat, h){
 
     smd_matr = matrix(0,r,c)
 
-    for (i in 1:r){
-        for (j in 1:c){
+    i <- seq_len(r)
+    rlb <- ifelse(i - h > 0, i - h, 1)
+    rrb <- ifelse(i + h < r, i + h, r)
 
-            rlb = ifelse(i-h > 0, i-h, 1)
-            rrb = ifelse(i+h < r, i+h, r)
-            clb = ifelse(j-h > 0, j-h, 1)
-            crb = ifelse(j+h < c, j+h, c)
-            smd_matr[i,j] = mean(matr[rlb:rrb, clb:crb])
+    j <- seq_len(c)
+    clb <- ifelse(j - h > 0, j - h, 1)
+    crb <- ifelse(j + h < c, j +  h, c)
+
+    for (i in seq_len(r)){
+        for (j in seq_len(c)){
+            smd_matr[i,j] = mean(matr[rlb[i]:rrb[i], clb[j]:crb[j]])
         }
     }
 

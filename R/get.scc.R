@@ -55,16 +55,13 @@ get.scc <- function (dat, resol, max){
             
             if (length(unique(ffd[,1])) != 1 & length(unique(ffd[,2])) != 1) {
                 corr = cor(ffd[,1], ffd[,2])
-                cov = cov(nd[,1], nd[,2])
                 wei = sqrt(var(nd[,1])*var(nd[,2]))*n
             } else {
                 corr = NA
-                cov = NA
                 wei = NA
             }
         } else {
             corr = NA 
-            cov = NA
             wei = NA
         }
 

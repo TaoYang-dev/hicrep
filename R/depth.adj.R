@@ -7,7 +7,7 @@
 #'
 #' @param d a Hi-C matrix needed to be adjusted.
 #' @param resol the resolution of the input matrix.
-#' @param size the size the total number one wants to adjust to.
+#' @param size the total number reads one wants to adjust to.
 #' @param out either 0 or 1. If it is 0, the function returns matrix 
 #' format; if 1, it returns vection format.
 #' @return a matrix or vec which has the adjusted total number of reads.

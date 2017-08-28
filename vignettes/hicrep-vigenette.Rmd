@@ -114,7 +114,7 @@ demonstration of smoothing neighborhood for a point $C_{ij}$:
 (https://raw.githubusercontent.com/MonkeyLB/hicrep/master/vignettes/Smoothing_neighborhood.JPG)
 
 The maximum distance is that contacts beyond this distance will be under 
-investigation. Here we are showing an example that has resolution 40kb, 
+investigation. Here we are showing an example that has resolution 1Mb, 
 smoothing parameter $h = 1$, and contacts with distance over 5M will not 
 be considered:
 
@@ -124,7 +124,7 @@ head(Pre_HiC)
 ```
 The first two columns of the output are the mid-point coordinates of two 
 contact bins, and the last two are the smoothed (or not if $h = 0$) values
-of the two replicates.
+of the two replicates. 
 
 ## Select the optimal smoothing parameter
 
@@ -159,7 +159,8 @@ neighborhood size. We suggest to use sufficient sequenced Hi-C data to
 train the smoothing parameter given the resolution (i.e., > 300 million 
 total nubmer of reads for whole chromosome). To compare SCC between pairs
 of replicates that has the same resolution, one shall use the same 
-smoothing parameter.
+smoothing parameter. We suggest to use h=20, 11, 5, 3, 1, and 0 for the 
+resolution of 10Kb, 25Kb, 40Kb, 100Kb, 500Kb and 1Mb, respectively.
 
 ## Equalize the total number of reads
 

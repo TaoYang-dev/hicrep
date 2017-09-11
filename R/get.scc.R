@@ -78,7 +78,7 @@ get.scc <- function (dat, resol, max){
     corr = corr0[!is.na(corr0)]
     wei = wei0[!is.na(wei0)]
     scc = corr %*% wei/sum(wei)
-    std = sqrt(sum(wei^2*(1-corr^2)^2/(n-3))/(sum(wei))^2)
+    std = sqrt(sum(wei^2*(1-corr^2)^2/c(n-3))/(sum(wei))^2)
   
     return(list(corr = corr, wei = wei, scc = scc, std = std))
 }

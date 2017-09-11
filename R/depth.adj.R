@@ -33,6 +33,7 @@
 
 depth.adj = function(d, size, resol, out = 0){
 
+    min = d[1,3]	#minimum genomic coordinate
     cd = d[,-c(1,2,3)]
     rownames(cd) = colnames(cd) = d[,3]-resol/2
 
@@ -49,8 +50,8 @@ depth.adj = function(d, size, resol, out = 0){
     ##turn it back to matrix
 
     ntemp = temp[which(temp[,3]!=0),]
-    ntemp[,1] = (ntemp[,1]+resol/2)/resol
-    ntemp[,2] = (ntemp[,2]+resol/2)/resol
+    ntemp[,1] = (ntemp[,1] + resol/2 - min)/resol + 1	#new indexing (add 1 because 1-indexed)
+    ntemp[,2] = (ntemp[,2] + resol/2 - min)/resol + 1	#new indexing (add 1 because 1-indexed)
     cd[cd>0] = 0
     cd[ntemp[,c(1,2)]] = ntemp[,3]
 

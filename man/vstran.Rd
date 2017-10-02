@@ -28,7 +28,16 @@ range.
 }
 \examples{
 data(HiCR1)
-HiC_R1_vs <- vstran(HiCR1)
-head(HiC_R1_vs)
+data(HiCR2)
+
+#exact contact counts within 1Mb interaction distance
+d1 <- d2 <- NULL
+for (i in 1:nrow(HiCR1)){
+    d1 = c(d1, HiCR1[i, i+1])
+    d2 = c(d2, HiCR2[i, i+1])
+    d = cbind(d1, d2)
 }
 
+HiC_R1_vs <- vstran(d)
+head(HiC_R1_vs)
+}

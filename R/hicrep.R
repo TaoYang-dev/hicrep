@@ -15,33 +15,27 @@
 #'   \item{LazyLoad:    }{Yes}
 #' }
 #'
-#' The main functions are \code{\link{prep}}, \code{\link{get.scc}} and
-#' \code{\link{htrain}}. The function \code{\link{prep}} will take the 
-#' two replicates of \eqn{N*(3+N)} matrix format as input, and return 
-#' the vectorized, smoothed or unsmoothed (when smoothing neighborhood
-#' size parameter h = 0) Hi-C data, which will subsequently used to 
-#' compute stratum-adjusted correlation coefficients (scc). The function
-#' \code{\link{get.scc}} computes scc and its asymptotic standard  
-#' deviation, and the function \code{\link{htrain}} estimates optimal
-#' smoothing neighborhood size from the input matrices.
+#' The main functions are \code{\link{get.scc}} and
+#' \code{\link{htrain}}. The function \code{\link{get.scc}} computes
+#' scc and its asymptotic standard deviation, and the function 
+#' \code{\link{htrain}} estimates optimal smoothing neighborhood
+#' size from the input matrices.
 #' @author
 #' Tao Yang
 #' Maintainer: Tao Yang <xadmyangt@gmail.com>
 #' @references
-#' HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted
-#' correlation coefficient. Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, 
-#' Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. 
-#' bioRxiv 101386; doi: https://doi.org/10.1101/101386.
+#' HiCRep: assessing the reproducibility of Hi-C data using a 
+#' stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, Galip
+#' Gurkan Yardimci, Fan Song, Ross C Hardison, William Stafford Noble, 
+#' Feng Yue, Qunhua Li. Genome Research 2017. doi: 10.1101/gr.220640.117
 #' @examples
 #' data(HiCR1)
 #' data(HiCR2)
 #'
 #' #Estimate the optimial smoothing neighborhood size parameter
-#' h_hat <- htrain(HiCR1, HiCR2, 1000000, 5000000, 0:2)
-#' h_hat <- 0
-#' processed <- prep(HiCR1, HiCR2, 1000000, h_hat, 5000000)
+#' h_hat <- htrain(HiCR1, HiCR2, 1000000, 0, 5000000, 0:2)
 #'
-#' scc.out <- get.scc(processed, 1000000, 5000000)
+#' scc.out <- get.scc(HiCR1, HiCR2, 1000000, 0)
 #' scc.out$scc
 #' scc.out$std
 

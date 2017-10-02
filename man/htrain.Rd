@@ -4,7 +4,7 @@
 \alias{htrain}
 \title{Train the smoothing parameter (neighborhood size).}
 \usage{
-htrain(R1, R2, resol, max, range)
+htrain(R1, R2, resol, lbr = 0, ubr = 5e+06, range = 0:10)
 }
 \arguments{
 \item{R1}{A Hi-C intra-chromosome matrix.}
@@ -13,8 +13,11 @@ htrain(R1, R2, resol, max, range)
 
 \item{resol}{An integer indicating the resolution of the Hi-C matrix.}
 
-\item{max}{An integer indicating the maximum distance of interaction 
-that is considered.}
+\item{lbr}{An integer indicating the minumum distance of interaction
+that is considered. Default is 0.}
+
+\item{ubr}{An integer indicating the maximum distance of interaction 
+that is considered. Defalt is 5000000.}
 
 \item{range}{A vector of consecutive integers from which the optimal 
 smoothing parameter is searched, starting from zero (i.g., 0:10).}
@@ -36,12 +39,11 @@ neighborhood size.
 \examples{
 data(HiCR1)
 data(HiCR2)
-h_hat <- htrain(HiCR1, HiCR2, 1000000, 5000000, 0:2)
+h_hat <- htrain(HiCR1, HiCR2, 1000000, 0, 5000000, 0:2)
 }
 \references{
-HiCRep: HiCRep: assessing the reproducibility of Hi-C data 
-using a stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang,
-Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng Yue, 
-Qunhua Li. bioRxiv 101386; doi: https://doi.org/10.1101/101386.
+HiCRep: assessing the reproducibility of Hi-C data using a 
+stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, Galip
+Gurkan Yardimci, Fan Song, Ross C Hardison, William Stafford Noble, 
+Feng Yue, Qunhua Li. Genome Research 2017. doi: 10.1101/gr.220640.117
 }
-

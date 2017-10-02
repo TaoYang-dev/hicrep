@@ -1,26 +1,34 @@
 Package: hicrep
 Title: Measuring the reproducibility of Hi-C data
-Version: 0.99.15
-Authors@R: person("Tao", "Yang", email = "xadmyangt@gmail.com", role = c("aut", "cre"))
-Description: Hi-C is a powerful technology for studying genome-wide chromatin interactions.
-    However, current methods for assessing Hi-C data reproducibility can produce misleading 
-    results because they ignore spatial features in Hi-C data, such as domain structure and 
-    distance-dependence. We present a novel reproducibility measure that systematically takes 
-    these features into consideration. This measure can assess pairwise differences between Hi-C 
-    matrices under a wide range of settings, and can be used to determine optimal sequencing 
-    depth. Compared to existing approaches, it consistently shows higher accuracy in 
-    distinguishing subtle differences in reproducibility and depicting interrelationships 
-    of cell lineages than existing approaches. This R package `hicrep` implements our approach.
+Version: 1.0.1
+Authors@R: c(person("Tao", "Yang", email = "xadmyangt@gmail.com", role =
+        c("aut", "cre")), person("Fan", "Song", email = "songfudan@gmail.com"
+        , role = c("ctb")))
+Description: Hi-C is a powerful technology for studying genome-wide
+        chromatin interactions. However, current methods for assessing
+        Hi-C data reproducibility can produce misleading results
+        because they ignore spatial features in Hi-C data, such as
+        domain structure and distance-dependence. We present a novel
+        reproducibility measure that systematically takes these
+        features into consideration. This measure can assess pairwise
+        differences between Hi-C matrices under a wide range of
+        settings, and can be used to determine optimal sequencing
+        depth. Compared to existing approaches, it consistently shows
+        higher accuracy in distinguishing subtle differences in
+        reproducibility and depicting interrelationships of cell
+        lineages than existing approaches. This R package `hicrep`
+        implements our approach.
 biocViews: Sequencing, HiC, QualityControl
-Depends:
-    R (>= 3.0)
-Imports:
-    stats
+Depends: R (>= 3.3)
+Imports: stats, rhdf5, Rcpp, rmarkdown, testthat
 License: GPL (>= 2.0)
+LinkingTo: Rcpp
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 5.0.1
-Suggests: knitr,
-    rmarkdown,
-    testthat
+Suggests: knitr
 VignetteBuilder: knitr
+NeedsCompilation: yes
+Packaged: 2017-09-28 17:58:44 UTC
+Author: Tao Yang [aut, cre], Fan Song [ctb]
+Maintainer: Tao Yang <xadmyangt@gmail.com>
+RoxygenNote: 6.0.1

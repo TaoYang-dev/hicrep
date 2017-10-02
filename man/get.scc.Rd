@@ -4,27 +4,33 @@
 \alias{get.scc}
 \title{calculate the stratum-adjusted correlation coefficient}
 \usage{
-get.scc(dat, resol, max)
+get.scc(mat1, mat2, resol, h, lbr = 0, ubr = 5e+06)
 }
 \arguments{
-\item{dat}{A matrix of four columns. The first two are the mid-point 
-coordinates of two interacting bin.}
+\item{mat1}{Replicate 1 : a n*n intrachromosome Hi-C contact map.}
+
+\item{mat2}{Replicate 2 : a n*n intrachromosome Hi-C contact map.}
 
 \item{resol}{An integer indicating the resolution of the Hi-C matrix.}
 
-\item{max}{An integer indicating the maximum distance of interaction 
-that is considered.}
+\item{h}{An integer indicating the size of the smoothing neighborhood.}
+
+\item{lbr}{An integer indicating the minumum distance of interaction
+that is considered. Default is 0.}
+
+\item{ubr}{An integer indicating the maximum distance of interaction 
+that is considered. Defalt is 5000000.}
 }
 \value{
 A list of results including stratum-specific correlation 
 coefficients, weights, stratum-adjusted correlation coefficient 
 (scc), and the asymptotic standard deviation of scc.
 \itemize{
-    \item{corr    }{A vector that contains the stratum specific Pearson 
-                correlation coefficients.}
-    \item{wei    }{A vector that contains the weights for each stratum.}
-    \item{scc    }{Stratum-adjusted correlation coefficients.}
-    \item{std    }{The asymptotic standard deviation of scc.}
+  \item{corr    }{A vector that contains the stratum specific Pearson 
+               correlation coefficients.}
+   \item{wei    }{A vector that contains the weights for each stratum.}
+   \item{scc    }{Stratum-adjusted correlation coefficients.}
+   \item{std    }{The asymptotic standard deviation of scc.}
 }
 }
 \description{
@@ -39,16 +45,13 @@ average.
 \examples{
 data(HiCR1)
 data(HiCR2)
-processed <- prep(HiCR1, HiCR2, 1000000, 0, 5000000)
-
-scc.out = get.scc(processed, 1000000, 5000000)
+scc.out = get.scc(HiCR1, HiCR2, 100000, 0, 0, 5000000)
 scc.out$scc
 scc.out$std
 }
 \references{
-HiCRep: assessing the reproducibility of Hi-C data using 
-a stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, 
-Galip Gurkan Yardimci, Ross C Hardison, William Stafford Noble, Feng
-Yue, Qunhua Li. bioRxiv 101386; doi: https://doi.org/10.1101/101386.
+HiCRep: assessing the reproducibility of Hi-C data using a 
+stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, Galip
+Gurkan Yardimci, Fan Song, Ross C Hardison, William Stafford Noble, 
+Feng Yue, Qunhua Li. Genome Research 2017. doi: 10.1101/gr.220640.117
 }
-

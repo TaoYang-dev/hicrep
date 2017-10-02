@@ -1,7 +1,7 @@
 ---
 title: "Evaluate reproducibility of Hi-C data with `hicrep`"
 author: "Tao Yang  <xadmyangt@gmail.com>"
-date: "3/1/2017"
+date: "6/6/2017"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{Evaluate reproducibility of Hi-C data with `hicrep`}
@@ -47,18 +47,24 @@ intrachromosome replicates.
 
 ## Citation
 
-Cite the following paper:
+Cite our paper:
 
-HiCRep: assessing the reproducibility of Hi-C data using a stratum-adjusted
-correlation coefficient. Tao Yang, Feipeng Zhang, Galip Gurkan Yardimci, 
-Ross C Hardison, William Stafford Noble, Feng Yue, Qunhua Li. bioRxiv 101386; 
-doi: https://doi.org/10.1101/101386 
+HiCRep: assessing the reproducibility of Hi-C data using a 
+stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, Galip
+Gurkan Yardimci, Fan Song, Ross C Hardison, William Stafford Noble, 
+Feng Yue, Qunhua Li. Genome Research 2017. doi: 10.1101/gr.220640.117.
+
 
 
 ## Installation
 
-Download the source package `hicrep_0.99.5.tar.gz` from Github.
-Or install it from Bioconductor.
+Download the source package [hicrep_1.0.1.tar.gz]() from Github.
+Or install it from Bioconductor:
+```
+## try http:// if https:// URLs are not supported
+source("https://bioconductor.org/biocLite.R")
+biocLite("hicrep")
+```
 
 ## Rationale of method
 
@@ -77,7 +83,7 @@ In the second step, we stratify the Hi-C reads by the distance of contacting
 loci, calculate the Pearson correlations within each stratum, and then 
 summarize the stratum-specific correlation coefficients into an aggregated 
 statistic. We name it as Stratum-adjusted Correlation Coefficient (SCC). 
-For the methodology details, please refer to our manuscript.
+For the methodology details, please refer to our paper on Genome Research.
 
 ![Figure1. `hicrep` pipeline schematic representation]
 (https://raw.githubusercontent.com/MonkeyLB/hicrep/master/vignettes/hicrep-pipeline.JPG)
@@ -92,116 +98,40 @@ data("HiCR2")
 
 ## The format of input and Pre-processing
 
-The input are simply two Hi-C matrices to be compared.  The Hi-C matrices 
-should have the dimension $N\times(3+N)$. The three additional initial 
-columns are the chromosome name and mid-point coordinates of the two 
-contact bins. Here, we should a example data:
+The input are two Hi-C matrices to be compared.  The Hi-C matrices 
+should have the dimension $N\timesN$. 
 
 ```{r}
 dim(HiCR1)
 HiCR1[1:10,1:10]
 ```
 
-A single function `prep` will tranform the HiC matrix, smooth the data 
-with given neighborhood size parameter $h$, and filter the bins that have 
+The function `get.scc` will first smooth the HiC matrix, with given 
+neighborhood size parameter $h$, and filter the bins that have 
 zero counts in both replicates. The arguments includes the two matrices, 
-the resolution of matrices, smoothing parameter, and the maximum distance
-considered. The resolution is simply the bin size. Smoothing parameter 
-decides the neighborhood size of smoothing. Below (Figure 2) is a 
-demonstration of smoothing neighborhood for a point $C_{ij}$:
+the resolution of matrices, smoothing parameter, and the lower bound and 
+upper bound of interaction distance considered. The resolution is simply
+the bin size. Smoothing parameter decides the neighborhood size of 
+smoothing. Below (Figure 2) is a representation of smoothing neighborhood
+for a point $C_{ij}$:
 
 ![Figure2. A smoothing neighborhood with $h = 2$]
 (https://raw.githubusercontent.com/MonkeyLB/hicrep/master/vignettes/Smoothing_neighborhood.JPG)
 
-The maximum distance is that contacts beyond this distance will be under 
-investigation. Here we are showing an example that has resolution 1Mb, 
-smoothing parameter $h = 1$, and contacts with distance over 5M will not 
-be considered:
-
-```{r, eval=TRUE}
-Pre_HiC <- prep(HiCR1, HiCR2, 1000000, 1, 5000000)
-head(Pre_HiC)
-```
-The first two columns of the output are the mid-point coordinates of two 
-contact bins, and the last two are the smoothed (or not if $h = 0$) values
-of the two replicates. 
-
-## Select the optimal smoothing parameter
-
-A natrual question is how to select the smoothing parameter $h$.To select
-$h$ objectively, we develop a heuristic procedure to search for the optimal
-smoothing parameter.  Our procedure is designed based on the observation 
-that the correlation between contact maps of replicate samples first 
-increases with the level of smoothness and plateaus when sufficient 
-smoothness is reached. To proceed, we use a pair of reasonably deeply 
-sequenced interaction map as the training data. We randomly partition 
-the data into ten fractions 10% of the data, then compute SCC for the 
-sampled dataeach fraction at a series of smoothing parameters in the 
-ascending order, then choose the smallest h at which the increment of the
-average reproducibility  score is less than 0.01. This procedure is 
-repeated ten times, and the mode among the ten h’s is picked.
-
-```{r, eval=TRUE}
-h_hat <- htrain(HiCR1, HiCR2, 1000000, 5000000, 0:2)
-
-h_hat
-```
-
-![Figure3. Select the optimal smoothing parameter $h$]
-(https://raw.githubusercontent.com/MonkeyLB/hicrep/master/vignettes/Smoothing_parameter.JPG)
-
-The above graph shows the change of SCC as the $h$ increases from 0 to 10.
-The parameter $h=5$ is selected as the optimal smoothing neighborhood size.
-
-The smoothing parameter selection could be confounded by the sequencing 
-depth. Insufficient sequencing depth data might lead to inflated smoothing 
-neighborhood size. We suggest to use sufficient sequenced Hi-C data to 
-train the smoothing parameter given the resolution (i.e., > 300 million 
-total nubmer of reads for whole chromosome). To compare SCC between pairs
-of replicates that has the same resolution, one shall use the same 
-smoothing parameter. We suggest to use h=20, 11, 5, 3, 1, and 0 for the 
-resolution of 10Kb, 25Kb, 40Kb, 100Kb, 500Kb and 1Mb, respectively.
-
-## Equalize the total number of reads
-
-In previous section, we mention that sequencing depth could be a confounding
-effect. If the total numbers of reads are very different between the two 
-replicates, it's suggested that one should down-sample the higher sequencing 
-depth to make it equal the lower one. The best way to do it is to use the bam
-files to do the sub-sampling. In case you only have the matrix file available,
-we made a function to do down-sampling from matrix files.
-
-```{r}
-#check total number of reads before adjustment
-sum(HiCR1[,-c(1:3)])
-
-DS_HiCR1 <- depth.adj(HiCR1, 200000, 1000000, out = 0) 
-
-#check total number of reads after adjustment
-sum(DS_HiCR1[,-c(1:3)])
-
-```
-When out = 0, the function will return matrix in the original format. When
-it equals 1, the vectorized format will be outputed.
-
 
 ## Calculate Stratum-adjusted Correlation Coefficient (SCC)
 
-After the raw matrices are pre-processed, we are ready to calculate the SCC
-and its variance. The input file is just the output dataset (i.e., 
-vectorized, smoothed, zero-in-both filtered) from the function `prep`. 
-We also need to specify the resolution of the matrix, and the maximum
-contacting distance considered.
+An example to calculate SCC for a matrix of 1Mb resolution. Smoothing 
+parameter $h$ is set to 2. The lower bound of distance considered is 0 
+(diagnal), and the upper bound is 5Mb.
 
 ```{r, eval=TRUE}
-SCC.out = get.scc(Pre_HiC, 1000000, 5000000)
+scc.out = get.scc(HiCR1, HiCR2, 1000000, 2, 0, 5000000)
 
 #SCC score
-SCC.out[[3]]
-
+scc.out$scc
 #Standard deviation of SCC
-SCC.out[[4]]
-sessionInfo()
+scc.out$std
 ```
 
 The output is a list of results including stratum specific Pearson 
@@ -209,9 +139,92 @@ correlations, weight coefficient, SCC and the asymptotic standard
 deviation of SCC. The last two numbers are the ones we needed in most
 of the situations. 
 
+## Smooth the Hi-C matrix with 2D mean filter
+
+The function `fast.mean.filter()` is a very fast algorithm that applies 
+2D mean filter to squred matrices such as Hi-C contact mapes. The output 
+is a smoothed matrix that has the same size with the original matrix. 
+Here is an example to smooth the matrix with parameter $h = 2$:
+
+```{r, eval = TRUE}
+
+smd_mat = fast.mean.filter(HiCR1, 2)
+
+```
+
+## Select the optimal smoothing parameter
+
+To select $h$ objectively, we develop a heuristic procedure to search 
+for the optimal smoothing parameter.  Our procedure is designed based 
+on the observation that the correlation between contact maps of replicate 
+samples first increases with the level of smoothness and plateaus when 
+sufficient smoothness is reached.To proceed, we use a pair of reasonably 
+deeply sequenced interaction map as the training data. We randomly 
+sampled 10% of the data, then compute SCC for the sampled dataeach 
+fraction at a series of smoothing parameters in the ascending order. We
+choose the smallest $h$ at which the increment of the average 
+reproducibility score is less than 0.01. This procedure is repeated ten
+times, and the mode among the ten $h$’s is picked.
+
+```{r, eval=TRUE}
+h_hat <- htrain(HiCR1, HiCR2, 1000000, lbr = 0, ubr = 5000000, range = 0:2)
+
+h_hat
+```
+
+![Figure3. Select the optimal smoothing parameter $h$]
+(https://raw.githubusercontent.com/MonkeyLB/hicrep/master/vignettes/Smoothing_parameter.JPG)
+
+The above graph shows the change of SCC as the $h$ increases from 0 to 10 
+for a 40Kb resolution matrix. The parameter $h = 5$ is selected as the 
+optimal smoothing neighborhood size.
+
+Important note:
+The smoothing parameter selection could be confounded by the sequencing 
+depth. Insufficient sequencing depth data might lead to inflated 
+smoothing neighborhood size. To compare SCC between pairs of 
+replicates that has the same resolution, one shall use the same 
+smoothing parameter.
+
+Train the smoothing parameter could be time-consuming. It is not 
+suggested to train $h$ every time when calculating SCC. For a giving 
+resolution, one could use a deeply sequenced biological replicates 
+to train $h$ (i.e., > 300 million total nubmer of reads for whole 
+chromosome), and use the trained $h$ for other same resolution data. 
+Here we provide some trained $h$ trained based on two replicates 
+of hESC cells from Dixon et al 2015 (GEO accession: GSE52457): 
+
+Resolution ($h$): 
+10K (20), 25K (10), 40k(5), 100k(3), 500k(1 or 2), 1M(0 or 1). 
+
+## Equalize the total number of reads
+
+In previous section, we mention that sequencing depth could be a confounding
+effect. If the total numbers of reads are very different between the two 
+replicates, it's suggested that one should down-sample the higher sequencing 
+depth to make it equal to the lower one. The best way to do it is to use the 
+bam files to do the sub-sampling randomly. In case you only have the matrix 
+file available, we made a function `depth.adj()` to do down-sampling from 
+matrix files.
+
+```{r}
+#check total number of reads before adjustment
+sum(HiCR1)
+
+# sub-sample 200000 total reads
+DS_HiCR1 <- depth.adj(HiCR1, 200000) 
+
+#check total number of reads after adjustment
+sum(DS_HiCR1)
+
+```
+
+```{r}
+sessionInfo()
+```
+
 ## Computation efficiency
 
-The computation speed is determined by the size of the chromosome. For
-the chromosome 22 data, `htrain` needs approximately 15 minutes, and the
-`get.scc` takes about 1~2 minutes. For chromosome 1, `get.scc` takes 
-about 90 minutes. the The estimation is based on Intel i7-3250M core. 
+Given a pair of contact maps of human chromosome 1 with bin-size equal to 
+40kb, it takes 27 seconds on a laptop with 2.6GHz Intel Core i7-6600U and 
+16Gb of RAM.

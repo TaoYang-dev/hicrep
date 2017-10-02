@@ -1,5 +1,6 @@
 ## hicrep
 R package to evaluate the reproducibility of Hi-C data
+(Genome Research 2017. doi: 10.1101/gr.220640.117.)
 
 Tao Yang  <xadmyangt@gmail.com>
 

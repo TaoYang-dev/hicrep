@@ -1,6 +1,6 @@
 Package: hicrep
 Title: Measuring the reproducibility of Hi-C data
-Version: 1.2.0
+Version: 1.3.0
 Authors@R: person("Tao", "Yang", email = "xadmyangt@gmail.com", role =
         c("aut", "cre"))
 Description: Hi-C is a powerful technology for studying genome-wide

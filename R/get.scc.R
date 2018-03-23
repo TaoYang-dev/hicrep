@@ -63,7 +63,9 @@ get.scc <- function (mat1, mat2, resol, h, lbr = 0, ubr = 5000000){
             ffd1 <- c(ffd1, smt_R1[i+dist, i])
             ffd2 <- c(ffd2, smt_R2[i+dist, i])
             filt <- which(ffd1 == 0 & ffd2 == 0)
-          
+            if (length(filt) == 0){
+                ffd <- cbind(ffd1, ffd2)
+            } else
             ffd <- cbind(ffd1[-filt], ffd2[-filt])
         }
         

@@ -25,8 +25,7 @@ Feng Yue, Qunhua Li. Genome Research 2017. doi: 10.1101/gr.220640.117.
 
 
 ## Installation
-
-Download the source package [hicrep_1.0.1.tar.gz](https://github.com/MonkeyLB/hicrep/blob/master/hicrep_1.0.1.tar.gz) from Github.
+Download the source package [hicrep_1.4.0.tar.gz](https://github.com/MonkeyLB/hicrep/blob/master/hicrep_1.4.0.tar.gz) from Github.
 Or Install it from Bioconductor:
     
     source("https://bioconductor.org/biocLite.R")

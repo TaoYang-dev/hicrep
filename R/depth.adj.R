@@ -25,15 +25,21 @@
 
 
 depth.adj = function(d, size){
-    
-    p1 = d/sum(d)+.Machine$double.eps
   
-    d1 = sample(nrow(d), size, prob=rowSums(p1), replace=TRUE)
-    d2 = sample(ncol(d), size, prob=colSums(p1), replace=TRUE)
-    
-    mat = matrix(0, nrow(d), ncol(d))
-    for (i in 1:size){
-        mat[d1[i], d2[i]] = mat[d1[i], d2[i]] + 1
+    p1 = d/sum(d)+.Machine$double.eps
+    d1 = sample(seq_len(nrow(d)^2), size, prob = as.vector(p1), replace = TRUE)
+    df.d1 = data.frame(table(d1))
+  
+    d2 = rep(0, nrow(d)^2)
+    d2[as.double(as.vector(df.d1$d1))] = df.d1$Freq
+  
+    mat = matrix(d2, nrow(d), ncol(d))
+  
+    for (i in seq_len(nrow(d))){
+        for (j in seq_len(ncol(d))){
+              mat[i, j] = round((mat[j,i]+mat[i,j])/2)
+        }
     }
+  
     return(mat)
 }

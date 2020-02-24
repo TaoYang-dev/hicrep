@@ -27,7 +27,8 @@
 depth.adj = function(d, size){
   
     p1 = d/sum(d)+.Machine$double.eps
-    d1 = sample(seq_len(nrow(d)^2), size, prob = as.vector(p1), replace = TRUE)
+    d1 = sample(seq_len(nrow(d)^2), size, 
+                prob = as.vector(as.matrix(p1)), replace = TRUE)
     df.d1 = data.frame(table(d1))
   
     d2 = rep(0, nrow(d)^2)

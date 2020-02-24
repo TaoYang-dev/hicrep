@@ -15,7 +15,7 @@ of asymptotic standard deviation of scc.
 \itemize{
   \item{Package:    }{hicrep}
   \item{Type:    }{Package}
-  \item{Version:    }{0.99.6}
+  \item{Version:    }{1.5.0}
   \item{Date:    }{2017-2-5}
   \item{License:    }{GPL-2}
   \item{LazyLoad:    }{Yes}

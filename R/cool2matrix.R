@@ -2,7 +2,7 @@
 #'
 #' @param file the cooler file to be converted. 
 #' @param chr specifiy which chr to be compared. Default is "chr1".
-#' @return a hiC matrix that can be recongnized by get.scc.
+#' @return a squared HiC matrix that can be recongnized by get.scc.
 #' @references HiCRep: assessing the reproducibility of Hi-C data using a 
 #' stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, Galip
 #' Gurkan Yardimci, Fan Song, Ross C Hardison, William Stafford Noble, 

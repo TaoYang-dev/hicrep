@@ -1,7 +1,7 @@
 ---
 title: "Evaluate reproducibility of Hi-C data with `hicrep`"
 author: "Tao Yang  <xadmyangt@gmail.com>"
-date: "6/6/2017"
+date: "2/24/2020"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{Evaluate reproducibility of Hi-C data with `hicrep`}
@@ -58,12 +58,14 @@ Feng Yue, Qunhua Li. Genome Research 2017. doi: 10.1101/gr.220640.117.
 
 ## Installation
 
-Download the source package [hicrep_1.0.1.tar.gz]() from Github.
+Download the source package (hicrep_xxx.tar.gz) from Github.
 Or install it from Bioconductor:
 ```
 ## try http:// if https:// URLs are not supported
-source("https://bioconductor.org/biocLite.R")
-biocLite("hicrep")
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("hicrep")
 ```
 
 ## Rationale of method
@@ -99,7 +101,7 @@ data("HiCR2")
 ## The format of input and Pre-processing
 
 The input are two Hi-C matrices to be compared.  The Hi-C matrices 
-should have the dimension $N\timesN$. 
+should have the dimension $N\times N$. 
 
 ```{r}
 dim(HiCR1)
@@ -216,11 +218,21 @@ DS_HiCR1 <- depth.adj(HiCR1, 200000)
 
 #check total number of reads after adjustment
 sum(DS_HiCR1)
-
 ```
 
 ```{r}
 sessionInfo()
+```
+
+```{r}
+#check total number of reads before adjustment
+sum(HiCR1)
+
+# sub-sample 200000 total reads
+DS_HiCR1 <- depth.adj(HiCR1, 200000) 
+
+#check total number of reads after adjustment
+sum(DS_HiCR1)
 ```
 
 ## Computation efficiency

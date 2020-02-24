@@ -1,3 +1,7 @@
+CHANGES IN HICREP 1.5.0
+1. added function to convert 3-column matrix to squared matrix
+2. added function to extract data from .hic format
+
 CHANGES IN hicrep 1.0.1:
 1. Input format changed form N*(N+3) to N*N
 2. prep function depcated

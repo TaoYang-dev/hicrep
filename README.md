@@ -25,11 +25,17 @@ Feng Yue, Qunhua Li. Genome Research 2017. doi: 10.1101/gr.220640.117.
 
 
 ## Installation
-Download the source package [hicrep_1.4.0.tar.gz](https://github.com/MonkeyLB/hicrep/blob/master/hicrep_1.4.0.tar.gz) from Github.
-Or Install it from Bioconductor:
-    
-    source("https://bioconductor.org/biocLite.R")
-    biocLite("hicrep")
+## Installation
+
+Download the source package (hicrep_xxx.tar.gz) from Github.
+Or install it from Bioconductor:
+```
+## try http:// if https:// URLs are not supported
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("hicrep")
+```
 
 ## Rationale of method
 

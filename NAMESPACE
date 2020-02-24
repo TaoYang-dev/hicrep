@@ -3,7 +3,8 @@ useDynLib(hicrep)
 
 export(depth.adj, get.scc, 
        htrain, vstran, 
-       cool2matrix, fast.mean.filter)
+       cool2matrix, fast.mean.filter,
+       bed2mat, hic2mat)
 
 importFrom(stats, "cor", "cov", "ecdf", "var")
 importFrom(rhdf5, "h5read", "H5close")

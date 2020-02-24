@@ -31,4 +31,4 @@ NeedsCompilation: yes
 Packaged: 2020-02-24 13:04:30 UTC
 Author: Tao Yang [aut, cre], Fan Song [ctb]
 Maintainer: Tao Yang <xadmyangt@gmail.com>
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1

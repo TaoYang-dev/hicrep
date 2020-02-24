@@ -1,2 +1,5 @@
+..Rcheck
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^doc$
+^Meta$

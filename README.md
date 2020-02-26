@@ -150,3 +150,4 @@ Resolution  h
 1Mb 0 or 1
 ```
 
+For a given HiC dataset, a higher resolution matrix usually requires more smoothing, i.e. a higher `h` value, to enhance its domain structures, due to the increasing level of sparsity in the data. To compare reproducibility between samples with the same resolution, the same smoothing parameter should be used. 

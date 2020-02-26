@@ -1,6 +1,6 @@
 Package: hicrep
 Title: Measuring the reproducibility of Hi-C data
-Version: 1.12.0
+Version: 1.11.0
 Authors@R: c(person("Tao", "Yang", email = "xadmyangt@gmail.com", role =
         c("aut", "cre")), person("Fan", "Song", email = "songfudan@gmail.com"
         , role = c("ctb")))
@@ -10,7 +10,7 @@ Description: Hi-C is a powerful technology for studying genome-wide
         because they ignore spatial features in Hi-C data, such as
         domain structure and distance-dependence. We present a novel
         reproducibility measure that systematically takes these
-        features into consideration. This measure can assess pairwise
+        features into consideration. This measure can assess pairwiseß
         differences between Hi-C matrices under a wide range of
         settings, and can be used to determine optimal sequencing
         depth. Compared to existing approaches, it consistently shows

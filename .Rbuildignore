@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 ..Rcheck
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^doc$
 ^Meta$
+=======
+^.*\.Rproj$
+^\.Rproj\.user$
+>>>>>>> upstream/master

@@ -36,8 +36,10 @@ Figure1. `hicrep` pipeline schematic representation
 
 ## System requirements and installation 
 
-Hardware requirement: Linux, MacOS, Windows systems 
+Hardware requirement: Linux, MacOS, Windows systems
+
 Software requirement: R version > 3.3.0.
+
 Installation: HiCRep can be installed in three ways by running the following commands in R. 
 
 1. Install from Github:

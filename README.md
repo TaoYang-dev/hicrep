@@ -141,13 +141,13 @@ h_value <- htrain(mat1, mat2, resol = 40000, lbr = 0, ubr = 5000000, range = 0:1
 Training the smoothing parameter `h` will increase the computational time. However, it is not necessary to train `h` every time. In general, for a given resolution, the value of `h` trained from a pair of deeply sequenced biological replicates can be used for other datasets with the same resolution. Here we provide the `h` values trained from two hESC replicates in Dixon et al 2015 (GEO accession: GSE52457), which were sequenced at 500 million reads, for a range of resolutions. Users may directly use these values.
 
 ```
-Resolution  h
-10kb    20
-25kb    10
-40kb    5
-100kb   3
-500kb   1 or 2
-1Mb 0 or 1
+Resolution ----- h
+10kb ----- 20
+25kb ----- 10
+40kb ----- 5
+100kb ----- 3
+500kb ----- 1 or 2
+1Mb ----- 0 or 1
 ```
 
 For a given HiC dataset, a higher resolution matrix usually requires more smoothing, i.e. a higher `h` value, to enhance its domain structures, due to the increasing level of sparsity in the data. To compare reproducibility between samples with the same resolution, the same smoothing parameter should be used. 

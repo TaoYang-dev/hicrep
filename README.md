@@ -55,7 +55,7 @@ Download the source package `hicrep_1.11.0.tar.gz` from Github.
 
 (NOTE: version number can change, please find the newest one.)
 
-Link: https://github.com/qunhualilab/hicrep/raw/master/hicrep_1.11.0.tar.gz
+Link: https://github.com/MonkeyLB/hicrep/raw/master/hicrep_1.11.0.tar.gz
 ```
 > install.packages("/PATH/TO/SOURCE/hicrep_1.11.0.tar", repo = NULL, type = "source")
 ```

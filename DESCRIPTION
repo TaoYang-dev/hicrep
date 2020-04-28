@@ -20,7 +20,7 @@ Description: Hi-C is a powerful technology for studying genome-wide
         implements our approach.
 biocViews: Sequencing, HiC, QualityControl
 Depends: R (>= 3.3)
-Imports: stats, rhdf5, Rcpp, rmarkdown, testthat, strawr
+Imports: stats, rhdf5, Rcpp, rmarkdown, testthat
 License: GPL (>= 2.0)
 LinkingTo: Rcpp
 Encoding: UTF-8

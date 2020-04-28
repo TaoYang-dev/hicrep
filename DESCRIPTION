@@ -1,6 +1,6 @@
 Package: hicrep
 Title: Measuring the reproducibility of Hi-C data
-Version: 1.11.0
+Version: 1.12.0
 Authors@R: c(person("Tao", "Yang", email = "xadmyangt@gmail.com", role =
         c("aut", "cre")), person("Fan", "Song", email = "songfudan@gmail.com"
         , role = c("ctb")))

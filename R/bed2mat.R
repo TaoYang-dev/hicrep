@@ -14,7 +14,7 @@
 #'   bed <- matrix(0, nbin^2, 3)
 #'   bed[,1] = rep(seq_len(nbin), nbin)
 #'   bed[,2] = rep(seq_len(nbin), each = nbin)
-#'   bed[,3] = sample(1:10000, nbin^2,replace = T)
+#'   bed[,3] = sample(1:10000, nbin^2,replace = TRUE)
 #'   mat <- bed2mat(bed, resol = "NONE") 
 #'  
 #'   # assume "hic.coordinate.txt" is a 3-column contact matrix 

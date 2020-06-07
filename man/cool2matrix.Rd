@@ -19,7 +19,8 @@ converting cooler format to Hi-C matrices
 }
 \examples{
 \dontrun{
-  # Read a .cool file, extract intrachromosomal interactions on chr18 and convert it into a squared matrix
+  # Read a .cool file, extract intrachromosomal interactions 
+  # on chr18 and convert it into a squared matrix
   mat <- cool2matrix(“hic.cool”, chr = ‘chr18’)
 }
 }

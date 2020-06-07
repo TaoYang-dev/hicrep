@@ -17,6 +17,17 @@ a smoothed matrix.
 \description{
 A fast mean filter algorithm to smooth a matrix
 }
+\examples{
+data(HiCR1)
+data(HiCR2)
+
+#Estimate the optimial smoothing neighborhood size parameter
+h_hat <- htrain(HiCR1, HiCR2, 1000000, 0, 5000000, 0:2)
+
+scc.out <- get.scc(HiCR1, HiCR2, 1000000, 0)
+scc.out$scc
+scc.out$std
+}
 \references{
 HiCRep: assessing the reproducibility of Hi-C data using a 
 stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, Galip

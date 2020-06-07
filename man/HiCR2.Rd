@@ -11,6 +11,10 @@ HiCR2
 \description{
 A Hi-C matrix in the format of \eqn{N*N}.
 }
+\examples{
+data(HiCR2)
+
+}
 \references{
 HiCRep: assessing the reproducibility of Hi-C data using a 
 stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, Galip

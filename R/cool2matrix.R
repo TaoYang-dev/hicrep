@@ -8,6 +8,11 @@
 #' Gurkan Yardimci, Fan Song, Ross C Hardison, William Stafford Noble, 
 #' Feng Yue, Qunhua Li. Genome Research 2017. doi: 10.1101/gr.220640.117
 #' @export
+#' @examples
+#' \dontrun{
+#'   # Read a .cool file, extract intrachromosomal interactions on chr18 and convert it into a squared matrix
+#'   mat <- cool2matrix(“hic.cool”, chr = ‘chr18’)
+#' }
 
 
 cool2matrix <- function(file, chr = 'chr1') {

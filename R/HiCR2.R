@@ -6,4 +6,7 @@
 #' Gurkan Yardimci, Fan Song, Ross C Hardison, William Stafford Noble, 
 #' Feng Yue, Qunhua Li. Genome Research 2017. doi: 10.1101/gr.220640.117
 #'
+#' @examples
+#' data(HiCR2)
+#'
 "HiCR2"

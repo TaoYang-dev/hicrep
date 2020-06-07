@@ -17,6 +17,12 @@ a squared HiC matrix that can be recongnized by get.scc.
 \description{
 converting cooler format to Hi-C matrices
 }
+\examples{
+\dontrun{
+  # Read a .cool file, extract intrachromosomal interactions on chr18 and convert it into a squared matrix
+  mat <- cool2matrix(“hic.cool”, chr = ‘chr18’)
+}
+}
 \references{
 HiCRep: assessing the reproducibility of Hi-C data using a 
 stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, Galip

@@ -37,7 +37,7 @@ Hardware requirement: Linux, MacOS, Windows systems
 
 Software requirement: R version > 3.3.0
 
-Dependencies: `stat`, `strawr`, `rhdf5`, `rmarkdonw`, `testhat`
+Dependencies: `stat`, `rhdf5`,`testhat`
 
 Installation: HiCRep can be installed in three ways by running the following commands in R 
 

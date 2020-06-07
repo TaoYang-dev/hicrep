@@ -8,7 +8,22 @@
 #' Gurkan Yardimci, Fan Song, Ross C Hardison, William Stafford Noble, 
 #' Feng Yue, Qunhua Li. Genome Research 2017. doi: 10.1101/gr.220640.117
 #' @export
-
+#' @examples
+#'   # making up an example
+#'   nbin = 50
+#'   bed <- matrix(0, nbin^2, 3)
+#'   bed[,1] = rep(seq_len(nbin), nbin)
+#'   bed[,2] = rep(seq_len(nbin), each = nbin)
+#'   bed[,3] = sample(1:10000, nbin^2,replace = T)
+#'   mat <- bed2mat(bed, resol = "NONE") 
+#'  
+#'   # assume "hic.coordinate.txt" is a 3-column contact matrix 
+#'   # indexed by chromosome coordinates, and resolution = 4K base pair
+#'   \dontrun{
+#'       bed <- read.delim(“hic.coordinate.txt”)
+#'       mat <- bed2mat(bed, resol = 40000) # resol specifies the bin size in base pair
+#'    }
+#' }
 
 bed2mat <- function(bed, resol = "NONE"){ 
   # n the max number of bin

@@ -17,6 +17,22 @@ a squared HiC matrix that can be recongnized by get.scc.
 \description{
 converting 3-column contact matrix to squared HiC matrix
 }
+\examples{
+ # making up an example
+   nbin = 50
+   bed <- matrix(0, nbin^2, 3)
+   bed[,1] = rep(seq_len(nbin), nbin)
+   bed[,2] = rep(seq_len(nbin), each = nbin)
+   bed[,3] = sample(1:10000, nbin^2,replace = T)
+   mat <- bed2mat(bed, resol = "NONE") 
+  
+   # assume "hic.coordinate.txt" is a 3-column contact matrix 
+   # indexed by chromosome coordinates, and resolution = 4K base pair
+   \dontrun{
+       bed <- read.delim(“hic.coordinate.txt”)
+       mat <- bed2mat(bed, resol = 40000) # resol specifies the bin size in base pair
+    }
+}
 \references{
 HiCRep: assessing the reproducibility of Hi-C data using a 
 stratum-adjusted correlation coefficient. Tao Yang, Feipeng Zhang, Galip

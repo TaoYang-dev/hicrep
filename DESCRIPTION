@@ -1,6 +1,6 @@
 Package: hicrep
 Title: Measuring the reproducibility of Hi-C data
-Version: 1.12.0
+Version: 1.12.2
 Authors@R: c(person("Tao", "Yang", email = "xadmyangt@gmail.com", role =
         c("aut", "cre")), person("Fan", "Song", email = "songfudan@gmail.com"
         , role = c("ctb")))
@@ -20,7 +20,7 @@ Description: Hi-C is a powerful technology for studying genome-wide
         implements our approach.
 biocViews: Sequencing, HiC, QualityControl
 Depends: R (>= 3.3)
-Imports: stats, rhdf5, Rcpp, rmarkdown, testthat
+Imports: stats, rhdf5, Rcpp, strawr, rmarkdown, testthat
 License: GPL (>= 2.0)
 LinkingTo: Rcpp
 Encoding: UTF-8

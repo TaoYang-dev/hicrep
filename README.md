@@ -51,13 +51,13 @@ if (!requireNamespace("BiocManager", quietly = TRUE))  install.packages("BiocMan
 BiocManager::install("hicrep")
 ```
 3. Install from source:
-Download the source package `hicrep_1.11.0.tar.gz` from Github.
+Download the source package `hicrep_1.12.2.tar.gz` from Github.
 
 (NOTE: version number can change, please find the newest one.)
 
-Link: https://github.com/MonkeyLB/hicrep/raw/master/hicrep_1.11.0.tar.gz
+Link: https://github.com/MonkeyLB/hicrep/raw/master/hicrep_1.12.2.tar.gz
 ```
-> install.packages("/PATH/TO/SOURCE/hicrep_1.11.0.tar", repo = NULL, type = "source")
+> install.packages("/PATH/TO/SOURCE/hicrep_1.12.2.tar", repo = NULL, type = "source")
 ```
 
 ## Input file format comaptibility

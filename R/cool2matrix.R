@@ -11,11 +11,8 @@
 #' @examples
 #' \dontrun{
 #'   # Read a .cool file, extract intrachromosomal interactions on 
-<<<<<<< HEAD
-#'   chr18 and convert it into a squared matrix
-=======
+#'   #chr18 and convert it into a squared matrix
 #'   # chr18 and convert it into a squared matrix
->>>>>>> 5fb05fb8f2e2c0a6bf86ed081614d280cfd0e0b6
 #'   mat <- cool2matrix(“hic.cool”, chr = ‘chr18’)
 #' }
 

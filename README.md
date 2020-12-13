@@ -43,7 +43,7 @@ Installation: HiCRep can be installed in three ways by running the following com
 
 1. Install from Github:
 ```
-devtools::install_github(“MonkeyLB/hicrep”)
+devtools::install_github(“TaoYang-dev/hicrep”)
 ```
 2. Install from Bioconductor:
 ```

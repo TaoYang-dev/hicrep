@@ -28,11 +28,11 @@
 bed2mat <- function(bed, resol = "NONE"){ 
   # n the max number of bin
   if (resol == "NONE") {
-    N = max(bed[,c(1:2)])
+    N = max(bed[,c(1:2)]) + 1
   } else {
-    N = max(bed[,c(1:2)])/resol
-    bed[,1] = bed[,1]/resol
-    bed[,2] = bed[,2]/resol
+    N = max(bed[,c(1:2)])/resol + 1
+    bed[,1] = bed[,1]/resol + 1
+    bed[,2] = bed[,2]/resol + 1
   }
   
   mat = matrix(0, N, N)
